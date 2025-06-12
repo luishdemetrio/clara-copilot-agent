@@ -1,0 +1,86 @@
+[
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "AssignCopilotLicenseByEmail",
+    "RelativePath": "api/Copilot/assign-license-by-email/{userEmail}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userEmail",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "AssignCopilotLicense",
+    "RelativePath": "api/Copilot/assign-license/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "RemoveCopilotLicenseByEmail",
+    "RelativePath": "api/Copilot/remove-license-by-email/{userEmail}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userEmail",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "RemoveCopilotLicense",
+    "RelativePath": "api/Copilot/remove-license/{userId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "GetCopilotUsageDetails",
+    "RelativePath": "api/Copilot/usage-details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Lance.API.Controllers.CopilotController",
+    "Method": "GetM365CopilotUsageReport",
+    "RelativePath": "api/Copilot/usage-report",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

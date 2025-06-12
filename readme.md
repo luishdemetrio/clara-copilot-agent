@@ -6,8 +6,7 @@
 
 **Clara** is an intelligent AI agent built on Microsoft Copilot Studio that revolutionizes M365 Copilot license management for enterprises. It automates license monitoring, optimizes allocation, and streamlines user communication to ensure maximum ROI on your M365 Copilot investment.
 
-![](images/clara.png)
-
+![](images/Clara.png)
 
 ## 🎯 Overview
 
@@ -99,8 +98,8 @@ graph TB
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/lance-copilot-agent.git
-   cd lance-copilot-agent
+   git clone https://github.com/luishdemetrio/clara-copilot-agent.git
+   cd clara-copilot-agent
    ```
 
 2. **Deploy the .NET APIs**
@@ -153,7 +152,7 @@ LANCE includes built-in safety mechanisms:
 ## 📁 Repository Structure
 
 ```
-lance-copilot-agent/
+clara-copilot-agent/
 ├── src/
 │   ├── LanceAPI/                 # .NET REST API source code
 │   │   ├── Controllers/

@@ -1,0 +1,215 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Lance.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Copilot/usage-report": {
+      "get": {
+        "tags": [
+          "Copilot"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/remove-license/{userId}": {
+      "post": {
+        "tags": [
+          "Copilot"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/remove-license-by-email/{userEmail}": {
+      "post": {
+        "tags": [
+          "Copilot"
+        ],
+        "parameters": [
+          {
+            "name": "userEmail",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/assign-license/{userId}": {
+      "post": {
+        "tags": [
+          "Copilot"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/assign-license-by-email/{userEmail}": {
+      "post": {
+        "tags": [
+          "Copilot"
+        ],
+        "parameters": [
+          {
+            "name": "userEmail",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/usage-details": {
+      "get": {
+        "tags": [
+          "Copilot"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "api://<your-client-id>/.default"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://login.microsoftonline.com/b5d31b4e-6d83-4373-b61b-de1b0cd6f140/oauth2/v2.0/authorize",
+            "tokenUrl": "https://login.microsoftonline.com/b5d31b4e-6d83-4373-b61b-de1b0cd6f140/oauth2/v2.0/token",
+            "scopes": {
+              "api:// 28d4ccf2-99fb-47e2-ad49-58677a54c6f1/access_as_user": "Access API"
+            }
+          }
+        }
+      }
+    }
+  }
+}
