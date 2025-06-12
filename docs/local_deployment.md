@@ -8,9 +8,8 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/docs/local_deployment.md) | [Azure Deployment guide ](https://github.com/cristianoag/microsoft-teams-apps-company-communicator/wiki/Deployment-guide-powershell)  |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/readme_local.md) | [Azure Deployment guide ](https://github.com/cristianoag/microsoft-teams-apps-company-communicator/wiki/Deployment-guide-powershell)  |
 | ---- | ---- | ---- | 
-
 ## 🎯 Overview
 
 Managing M365 Copilot licenses across large organizations can be complex and time-consuming. Clara solves this by providing:
@@ -87,6 +86,44 @@ graph TB
    - Automated email notifications
    - Workflow triggers and data synchronization
 
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Microsoft 365 E3/E5 licenses with Copilot
+- Microsoft Copilot Studio access
+- SharePoint Online
+- Power Automate Premium
+- Azure subscription for API hosting
+
+### Installation
+
+1. **Clone the Repository**
+   ```PowerShell
+   git clone https://github.com/luishdemetrio/clara-copilot-agent.git
+   cd clara-copilot-agent
+   ```
+
+2. **Deploy the .NET APIs**
+   ```PowerShell
+   cd src/Clara.API
+   dotnet restore
+   dotnet publish -c Release
+   # Deploy to Azure App Service or your preferred hosting platform
+   ```
+
+3. **Import the Copilot Studio Solution**
+   - Download `LANCE-CopilotStudio-Solution.zip` from releases
+   - Import into your Copilot Studio environment
+   - Configure API connections and SharePoint list connections
+
+4. **Set Up SharePoint List**
+   - Use the provided `WaitlistTemplate.xlsx` to create your waitlist
+   - Configure permissions for the service account
+
+5. **Configure Power Automate Flows**
+   - Import the provided flows for email notifications
+   - Update email templates and sender information
 
 ## 💡 Usage Examples
 
@@ -106,6 +143,13 @@ graph TB
 "Reassign unused licenses to waitlist users"
 ```
 
+### Safety Features
+
+LANCE includes built-in safety mechanisms:
+- **Mandatory Confirmation**: All license changes require explicit approval
+- **Clear Summaries**: Detailed preview of proposed changes before execution
+- **Error Handling**: Graceful failure management with specific guidance
+- **Audit Logging**: Comprehensive tracking of all operations
 
 ## 📁 Repository Structure
 
@@ -130,6 +174,26 @@ clara-copilot-agent/
 └── README.md
 ```
 
+## 🔧 Configuration
+
+### Environment Variables
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "your-database-connection-string"
+  },
+  "MicrosoftGraph": {
+    "ClientId": "your-app-registration-client-id",
+    "ClientSecret": "your-client-secret",
+    "TenantId": "your-tenant-id"
+  },
+  "SharePoint": {
+    "SiteUrl": "https://yourtenant.sharepoint.com/sites/yoursite",
+    "ListId": "your-waitlist-list-id"
+  }
+}
+```
 
 ### Required Permissions
 
@@ -181,6 +245,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⭐ If Clarahelps optimize your M365 Copilot license management, please star this repository!**
+**⭐ If LANCE helps optimize your M365 Copilot license management, please star this repository!**
 
 Made with ❤️ for enterprise IT teams worldwide.
