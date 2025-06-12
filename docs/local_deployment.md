@@ -8,85 +8,11 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/readme_local.md) | [Azure Deployment guide ](https://github.com/cristianoag/microsoft-teams-apps-company-communicator/wiki/Deployment-guide-powershell)  |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
 | ---- | ---- | ---- | 
-## 🎯 Overview
 
-Managing M365 Copilot licenses across large organizations can be complex and time-consuming. Clara solves this by providing:
 
-- **Automated License Monitoring**: Real-time tracking of license usage and identification of inactive users
-- **Intelligent Waitlist Management**: Streamlined process for managing license requests and approvals
-- **Smart Reassignment Workflows**: Automated redistribution of unused licenses to waiting users
-- **Proactive Communication**: Automated notifications to users about license status and usage optimization
-
-![](images/clara_overview.png)
-
-## ✨ Key Features
-
-### 🔍 **Usage Analytics & Reporting**
-- Comprehensive M365 Copilot usage analysis across all applications (Teams, Outlook, Word, Copilot Chat)
-- Identification of inactive and low-usage license holders
-- Customizable usage thresholds and reporting periods
-
-### 📋 **Waitlist Management**
-- Integration with SharePoint Lists for centralized waitlist tracking
-- Automated status updates and user notifications
-- Priority-based license assignment based on request dates
-- Comprehensive audit trails for compliance
-
-### 🔄 **License Optimization**
-- **Individual Reassignment**: Move licenses between specific users
-- **Bulk Operations**: Reassign multiple unused licenses to waitlist users
-- **New Assignments**: Streamlined process for assigning licenses to new users
-- **Safety Controls**: Mandatory confirmation before any license changes
-
-### 📧 **Automated Communications**
-- Proactive notifications to low-usage license holders
-- Welcome messages for new license recipients with usage guidance
-- Status updates for waitlist users
-- Integration with Outlook Power Automate connector
-
-## 🏗 Architecture
-
-```mermaid
-graph TB
-    A[Clara Agent] --> B[.NET REST APIs]
-    A --> C[SharePoint Lists]
-    A --> D[Power Automate]
-    
-    B --> E[M365 Copilot Usage Dashboard]
-    C --> F[Waitlist Management]
-    D --> G[Email Notifications]
-    D --> L[Teams Notifications]
-    
-    E --> H[Usage Analytics]
-    F --> I[User Tracking]
-    G --> J[Automated Communications]
-    L --> J[Automated Communications]
-```
-
-### Components
-
-1. **LANCE Agent (Copilot Studio)**
-   - Natural language interface for IT administrators
-   - Intelligent conversation flows with safety confirmations
-   - Integration orchestration and workflow management
-
-2. **.NET REST APIs**
-   - M365 Copilot license management endpoints
-   - Usage data retrieval and processing
-   - License assignment/removal operations
-
-3. **SharePoint Integration**
-   - Centralized waitlist storage and management
-   - User request tracking and status updates
-   - Audit trail maintenance
-
-4. **Power Automate Connectors**
-   - Automated email notifications
-   - Workflow triggers and data synchronization
-
-## 🚀 Quick Start
+## 🚀 Quick Start to Run it Locally
 
 ### Prerequisites
 
@@ -96,155 +22,173 @@ graph TB
 - Power Automate Premium
 - Azure subscription for API hosting
 
-### Installation
+---
+### 🧱 Step 1: Clone the Repository
 
-1. **Clone the Repository**
+
    ```PowerShell
    git clone https://github.com/luishdemetrio/clara-copilot-agent.git
    cd clara-copilot-agent
    ```
 
-2. **Deploy the .NET APIs**
+### 🧱 Step 2: Build the .NET APIs
+
    ```PowerShell
    cd src/Clara.API
    dotnet restore
    dotnet publish -c Release
-   # Deploy to Azure App Service or your preferred hosting platform
    ```
+   
+   ![](images/local01.png)
+   
+  You can also open the project in Visual Studio Code or your preferred IDE. 
+   
+### 🧱 Step 3: Configure Azure AD Authentication in appsettings.json
 
-3. **Import the Copilot Studio Solution**
-   - Download `LANCE-CopilotStudio-Solution.zip` from releases
-   - Import into your Copilot Studio environment
-   - Configure API connections and SharePoint list connections
-
-4. **Set Up SharePoint List**
-   - Use the provided `WaitlistTemplate.xlsx` to create your waitlist
-   - Configure permissions for the service account
-
-5. **Configure Power Automate Flows**
-   - Import the provided flows for email notifications
-   - Update email templates and sender information
-
-## 💡 Usage Examples
-
-### Basic Commands
-
-```
-🔍 Monitor License Usage
-"Show me all users who haven't used Copilot in the last 30 days"
-
-🔄 Reassign Licenses
-"Reassign license from john.doe@company.com to jane.smith@company.com"
-
-📋 Manage Waitlist
-"Assign a Copilot license to the next person on the waitlist"
-
-📊 Bulk Operations
-"Reassign unused licenses to waitlist users"
-```
-
-### Safety Features
-
-LANCE includes built-in safety mechanisms:
-- **Mandatory Confirmation**: All license changes require explicit approval
-- **Clear Summaries**: Detailed preview of proposed changes before execution
-- **Error Handling**: Graceful failure management with specific guidance
-- **Audit Logging**: Comprehensive tracking of all operations
-
-## 📁 Repository Structure
-
-```
-clara-copilot-agent/
-├── src/
-│   ├── LanceAPI/                 # .NET REST API source code
-│   │   ├── Controllers/
-│   │   ├── Models/
-│   │   ├── Services/
-│   │   └── appsettings.json
-│   └── CopilotStudio/           # Copilot Studio assets
-│       ├── Solution/
-│       └── Topics/
-├── templates/
-│   ├── SharePoint/              # SharePoint list templates
-│   └── PowerAutomate/           # Power Automate flow templates
-├── docs/
-│   ├── LAB.md                   # Step-by-step lab guide
-│   ├── API-Documentation.md     # API reference
-│   └── screenshots/
-└── README.md
-```
-
-## 🔧 Configuration
-
-### Environment Variables
+To enable secure access to the Clara API using Azure Active Directory (Azure AD), update the appsettings.Development.json file in the Clara.API project with the values from your Azure App Registration.
 
 ```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "your-database-connection-string"
-  },
-  "MicrosoftGraph": {
-    "ClientId": "your-app-registration-client-id",
-    "ClientSecret": "your-client-secret",
-    "TenantId": "your-tenant-id"
-  },
-  "SharePoint": {
-    "SiteUrl": "https://yourtenant.sharepoint.com/sites/yoursite",
-    "ListId": "your-waitlist-list-id"
-  }
+"AzureAd": {
+  "Instance": "https://login.microsoftonline.com/",
+  "Domain": "<your-tenant>.onmicrosoft.com",
+  "TenantId": "<your-tenant-id>",
+  "ClientId": "<your-app-client-id>",
+  "Audience": "<your-app-client-id>"
 }
 ```
 
-### Required Permissions
+![](images/vscode01.png)
 
-- Microsoft Graph API permissions for license management
-- SharePoint site collection access
-- Power Automate connector permissions
+Explanation of Each Field
 
-## 🧪 Lab Guide
 
-Want to build LANCE from scratch? Check out our comprehensive [Lab Guide](docs/LAB.md) that walks you through:
+<table>
+<thead>
+	<tr>
+		<th>Field</th>
+		<th>Description</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Instance</td>
+		<td>Base URL for Azure AD authentication. Always use <code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;">https://login.microsoftonline.com/`</td>
+	</tr>
+	<tr>
+		<td>Domain</td>
+		<td>Your Azure AD tenant domain, e.g., <code style="font-family: source-code-pro, Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;">contoso.onmicrosoft.com`</td>
+	</tr>
+	<tr>
+		<td>TenantId</td>
+		<td>The unique GUID of your Azure AD tenant</td>
+	</tr>
+	<tr>
+		<td>ClientId</td>
+		<td>The Application (client) ID of your registered app in Azure AD</td>
+	</tr>
+	<tr>
+		<td>Audience</td>
+		<td>Should match the Application ID URI set when exposing the API. If you accepted the default, this is the same as ClientId</td>
+	</tr>
+</tbody>
+</table>
 
-- Setting up the development environment
-- Creating the .NET REST APIs
-- Building the Copilot Studio agent
-- Configuring SharePoint integration
-- Testing and deployment
+> ℹ
+>
+> Note: The steps to obtain these values are described in the [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md).
 
-## 📚 Documentation
 
-- [API Reference](docs/API-Documentation.md)
-- [Lab Guide - Build Your Own LANCE](docs/LAB.md)
-- [Troubleshooting Guide](docs/Troubleshooting.md)
-- [Best Practices](docs/Best-Practices.md)
+### 🧱 Step 4: Run the Clara API Locally
 
-## 🤝 Contributing
+Run the Clara API locally for development or testing:
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+1. Open the Terminal console and run:
 
-- Code standards and conventions
-- Pull request process
-- Issue reporting
-- Feature requests
+    ```PowerShell
+    dotnet run
+    ```
+    
+    ![](images/vscode02.png)
+    
+    
+2. By default, the API will be available at: `http://localhost:5077`
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+3. You can test it by opening the Swagger UI in your browser:
 
-## 🙋‍♀️ Support
+   `http://localhost:5077/swagger/index.html`
+   
+   
+   ![](images/vscode03.png)
+   
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/lance-copilot-agent/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/lance-copilot-agent/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/lance-copilot-agent/wiki)
-
-## 🌟 Acknowledgments
-
-- Microsoft Copilot Studio team for the amazing platform
-- Microsoft Graph API for comprehensive M365 integration
-- The enterprise IT community for valuable feedback and requirements
+> ℹ
+> 
+> The APIs are protected. To test them, you must register a client app and use the **"Authorize"** button in Swagger to provide the client ID and secret. Follow the same steps as described in the [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md) for registering a **client application**.
 
 ---
+### 🧱 Step 5: Test Clara API Locally via Swagger
 
-**⭐ If LANCE helps optimize your M365 Copilot license management, please star this repository!**
+Now that you have configured Azure AD authentication and registered a client application, you can test the Clara API locally using the built-in Swagger UI.
 
-Made with ❤️ for enterprise IT teams worldwide.
+✅ Prerequisites
+- Clara API is running locally (e.g., via dotnet run)
+- You have the following values from your Azure App Registration:
+
+  - Client ID
+  - Client Secret
+  - Tenant ID
+  - Scope (usually api://<client-id>/.default)
+
+#### 🧪 Steps to Test
+
+1. Open Swagger UI
+   
+   `Navigate to https://localhost:5077/swagger/index.html` in your browser.
+
+2. Click the **"Authorize"** button
+
+   This opens a dialog to input your OAuth credentials.
+
+3. Fill in the OAuth2 fields
+
+   - **Client ID:** Paste your Azure AD app’s client ID
+   - **Client Secret:** Paste your client secret
+   - **Scope:** check the listed scope
+
+4. Click **"Authorize"**
+
+   Swagger will request a token and apply it to all API calls.
+
+5. Test Endpoints
+
+   Try calling any of the secured endpoints (e.g., /api/license/usage) to verify that authentication is working.
+
+> ℹ️
+>
+> If you receive a 401 Unauthorized error, double-check your client credentials, scope, and that the Clara API is running with the correct Azure AD settings in appsettings.Development.json.
+
+---
+### 🧱 Step 6: Expose the API to the Internet Using ngrok
+
+o test the Clara API with external services like Power Platform or Copilot Studio, you can expose your local API to the internet using https://ngrok.com/.
+
+1. Install ngrok
+Download and install ngrok from https://ngrok.com/download.
+
+2. Authenticate ngrok (first-time setup)
+
+You can find your auth token in your ngrok dashboard after signing up.
+
+3. Start the tunnel
+
+This will generate a public HTTPS URL like:
+
+https://abc123.ngrok.io
+4. Update Azure App Registration
+To test OAuth flows, update the redirect URI in your Azure App Registration to include the new ngrok URL.
+
+5. Test the API
+Use the ngrok URL to test the API from external tools like Postman or Power Platform custom connectors.
+
+⚠️ Keep the ngrok tunnel running while testing. Restarting it will generate a new URL unless you have a paid plan with reserved domains.
