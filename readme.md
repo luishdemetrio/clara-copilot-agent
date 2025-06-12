@@ -8,7 +8,7 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) | [Azure Deployment guide ](https://github.com/cristianoag/microsoft-teams-apps-company-communicator/wiki/Deployment-guide-powershell)  |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
 | ---- | ---- | ---- | 
 
 ## 🎯 Overview
@@ -46,6 +46,15 @@ Managing M365 Copilot licenses across large organizations can be complex and tim
 - Welcome messages for new license recipients with usage guidance
 - Status updates for waitlist users
 - Integration with Outlook Power Automate connector
+
+## Prerequisites
+
+- Microsoft 365 E3/E5 licenses with Copilot
+- Microsoft Copilot Studio access
+- SharePoint Online
+- Power Automate Premium
+- Azure subscription for API hosting
+
 
 ## 🏗 Architecture
 
@@ -181,6 +190,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⭐ If Clarahelps optimize your M365 Copilot license management, please star this repository!**
+**⭐ If Clara helps optimize your M365 Copilot license management, please star this repository!**
 
 Made with ❤️ for enterprise IT teams worldwide.
