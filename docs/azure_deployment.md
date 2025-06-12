@@ -8,7 +8,7 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/readme_local.md) | [Azure Deployment guide ](https://github.com/cristianoag/microsoft-teams-apps-company-communicator/wiki/Deployment-guide-powershell)  |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
 | ---- | ---- | ---- | 
 
 
