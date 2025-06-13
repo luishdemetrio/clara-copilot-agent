@@ -23,17 +23,12 @@ jobs:
         with:
           dotnet-version: 'v8.0'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
-
-      - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+     # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore "src/clara.api/clara.api.csproj"
+          dotnet build --configuration Release "src/clara.api/clara.api.csproj"
+          dotnet publish -c Release "src/clara.api/clara.api.csproj" -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
 
   deploy:
     runs-on: windows-latest
