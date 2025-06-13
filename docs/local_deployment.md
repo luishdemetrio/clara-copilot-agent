@@ -8,56 +8,106 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Application Registration guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
 | ---- | ---- | ---- | 
 
+## 🚀  Local Debugging
+This lab guides you through configuring Azure App Registration for client access to the Clara API and testing the implementation locally and externally.
 
-## 🚀 Quick Start to Run it Locally
+### 🎯 Learning Objectives
+By completing this lab, you will:
 
-### Prerequisites
+* Create and configure Azure App Registrations for API client access
+* Set up OAuth2 authentication flows with proper scopes
+* Test APIs locally using Swagger UI with Azure AD authentication
+* Expose local APIs to the internet for external testing
 
-- Microsoft 365 E3/E5 licenses with Copilot
+
+Before starting this lab, ensure you have access to the following:
+
+### 📋 Prerequisites
+
+- Microsoft 365 E3/E5 licenses with Copilot enabled
 - Microsoft Copilot Studio access
-- SharePoint Online
-- Power Automate Premium
-- Azure subscription for API hosting
+- SharePoint Online subscription
+- Power Automate Premium license
+- Azure subscription with App Registration permissions
+
+
+### 🪛 Development Tools
+
+Git installed on your local machine
+* .NET 8.0 SDK or later
+* Visual Studio Code or preferred IDE
+* Modern web browser (Chrome, Edge, Firefox)
+
+### ☁️ Azure Prerequisites
+
+* Access to create Azure AD App Registrations
+* Basic understanding of Azure AD authentication concepts
+
+### 🎯 Lab Overview
+This comprehensive lab will guide you through:
+
+* Local API Setup - Clone, build, and configure the Clara API
+* Azure AD Authentication - Set up secure authentication with Azure Active Directory
+* Client App Registration - Create and configure a client application for testing
+* API Testing - Validate functionality using Swagger UI
+
+⏱️ Estimated completion time: 45-60 minutes
 
 ---
-### 🧱 Step 1: Clone the Repository
+## 🧩 Part 1: Local API Setup
 
+### 🧱 Step 1: Clone and Navigate to Repository
+Open your terminal or PowerShell and execute:
 
    ```PowerShell
    git clone https://github.com/luishdemetrio/clara-copilot-agent.git
    cd clara-copilot-agent
    ```
 
-### 🧱 Step 2: Build the .NET APIs
-
+### 🧱 Step 2: Build the .NET Application
+Navigate to the API project and restore dependencies:
    ```PowerShell
    cd src/Clara.API
    dotnet restore
-   dotnet publish -c Release
+   dotnet build
    ```
    
    ![](images/local01.png)
    
-  You can also open the project in Visual Studio Code or your preferred IDE. 
+> ℹ
+>
+> ️Alternative: Open the project in Visual Studio Code for a better development experience.
+
    
-### 🧱 Step 3: Configure Azure AD Authentication in appsettings.json
+### 🧱 Step 3: Configure Azure AD Authentication
 
-To enable secure access to the Clara API using Azure Active Directory (Azure AD), update the appsettings.Development.json file in the Clara.API project with the values from your Azure App Registration.
+To enable secure access to the Clara API using Azure Active Directory (Azure AD), update the appsettings.Development.json file in the **Clara.API** project with the values from your Azure App Registration.
 
-```json
-"AzureAd": {
-  "Instance": "https://login.microsoftonline.com/",
-  "Domain": "<your-tenant>.onmicrosoft.com",
-  "TenantId": "<your-tenant-id>",
-  "ClientId": "<your-app-client-id>",
-  "Audience": "<your-app-client-id>"
-}
-```
+1. Locate Configuration File
 
-![](images/vscode01.png)
+   Find the appsettings.Development.json file in the Clara.API project folder.
+
+2. Update Authentication Settings
+
+   Replace the placeholder values with your Azure AD configuration:
+
+   ```json
+    "AzureAd": {
+      "Instance": "https://login.microsoftonline.com/",
+      "Domain": "<your-tenant>.onmicrosoft.com",
+      "TenantId": "<your-tenant-id>",
+      "ClientId": "<your-app-client-id>",
+      "Audience": "<your-app-client-id>"
+    },
+    "Swagger": {
+        "ClientId": "NEW_SWAGGER_CLIENT_ID"
+    },
+   ```
+
+   ![](images/vscode01.png)
 
 Explanation of Each Field
 
@@ -90,44 +140,153 @@ Explanation of Each Field
 		<td>Audience</td>
 		<td>Should match the Application ID URI set when exposing the API. If you accepted the default, this is the same as ClientId</td>
 	</tr>
+		<tr>
+		<td>Swagger.ClientId</td>
+		<td>Client ID for the Swagger UI authentication (separate app registration for testing)</td>
+	</tr>
 </tbody>
 </table>
 
+
 > ℹ
 >
-> Note: The steps to obtain these values are described in the [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md).
+> Note: Don't have the AzureAd values yet? Follow the [Azure Application Registration ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md) to create your Azure AD App Registration..
+
+The steps to create the **ClientId for Swagger** will be explained in the next session. 
 
 
-### 🧱 Step 4: Run the Clara API Locally
+---
+### 🧱 Step 4: Run the API Locally
 
-Run the Clara API locally for development or testing:
+1. Start the Development Server
 
-1. Open the Terminal console and run:
+   From the Clara.API directory, run:
 
-    ```PowerShell
-    dotnet run
-    ```
+   ```PowerShell
+   dotnet run
+   ```
     
-    ![](images/vscode02.png)
+   ![](images/vscode02.png)
     
-    
-2. By default, the API will be available at: `http://localhost:5077`
+2. Verify the API is Running
+
+   - API Base URL: `http://localhost:5077`
+   - Swagger UI: `http://localhost:5077/swagger/index.html`
 
 
-3. You can test it by opening the Swagger UI in your browser:
+3. Test API Authentication
 
-   `http://localhost:5077/swagger/index.html`
+   - Open the Swagger UI in your browser  `http://localhost:5077/swagger/index.html`
    
    
    ![](images/vscode03.png)
    
 
-> ℹ
+> ℹ Security Note:
 > 
-> The APIs are protected. To test them, you must register a client app and use the **"Authorize"** button in Swagger to provide the client ID and secret. Follow the same steps as described in the [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md) for registering a **client application**.
+> All API endpoints are protected by Azure AD authentication. You'll need to complete Part 2 to fully test the API functionality.
+
+
+## 🧩 Part 2: Azure App Registration for Client Access
+
+**Objective:** Register a client application that will consume the Clara API
+
+**Prerequisites for Client Registration**
+
+Azure portal access with permission to create App Registrations
+The Clara API must be registered in Azure AD (covered in the  [Azure Application Registration ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md))
+  
+---
+### 🧱 Step 5: Create Client App Registration
+
+1. Go to [Azure](https://portal.azure.com).
+2. Navigate to **Azure Active Directory** > **App registrations**
+3. Click **+ New registration**
+
+   ![](images/az01.png)
+   
+4. Fill in the details:
+   - **Name**: `Clara Copilot Agent - App`
+   - **Supported account types**: Choose based on your org (e.g., "Single tenant")
+   - **Redirect URI**: set to `Single-page application (SPA)` - `http://localhost:5077/swagger/oauth2-redirect.html`
+   
+5. Click **Register**
+
+   ![](images/azs01.png)
+
+6. **Important:** Copy and save the Application (client) ID - you'll need this later
+
+   ![](images/azs05.png)
+   
 
 ---
-### 🧱 Step 5: Test Clara API Locally via Swagger
+
+### 🧱 Step 6: Configure API Permissions
+Grant the client app permission to access the Clara API
+
+1.  Go to **API permissions** 
+   - Click on **+ Add a permission**
+   - Choose **APIs my organization uses**
+   - Select the **Clara Copilot Agent - API**
+
+     ![](images/azs02.png)
+  
+   - Check the `access_as_user` scope
+
+   - Click **Add permissions**
+
+     ![](images/azs03.png)
+
+   - Click **Grant admin consent**
+  
+     ![](images/azs04.png)
+       
+---
+
+### 🧱 Step 7: Configure Application Settings
+Update the Clara API configuration to use the new client registration
+
+1. Locate Configuration File
+
+   - Navigate to your **Clara API** project folder
+   - Open **appsettings.Development.json**
+
+
+2. Update Swagger Configuration
+
+   ```json
+    json{
+      "Swagger": {
+        "ClientId": "YOUR_CLIENT_APP_ID_HERE"
+      }
+    }
+    ```
+
+    ![](images/vscode04.png)
+
+   - Replace YOUR_CLIENT_APP_ID_HERE with the Application (client) ID from Step 5
+
+3. Verify Other Settings
+
+   - Ensure your appsettings.Development.json also contains:
+   
+    ```json
+    json{
+      "AzureAd": {
+        "Instance": "https://login.microsoftonline.com/",
+        "TenantId": "YOUR_TENANT_ID",
+        "ClientId": "YOUR_API_CLIENT_ID",
+        "Audience": "api://YOUR_API_CLIENT_ID"
+      }
+    }
+    ```
+
+
+## 🧩 Part 3: Local API Testing
+Verify Azure AD authentication is working correctly with your local API
+
+---
+### 🧱 Step 8: Test Clara API Locally via Swagger
 
 Now that you have configured Azure AD authentication and registered a client application, you can test the Clara API locally using the built-in Swagger UI.
 
@@ -142,53 +301,165 @@ Now that you have configured Azure AD authentication and registered a client app
 
 #### 🧪 Steps to Test
 
-1. Open Swagger UI
+1. Launch Swagger UI
+
+   - Open your browser
+   - Navigate to: `https://localhost:5077/swagger/index.html`
+   - Verify the Swagger page loads successfully
    
-   `Navigate to https://localhost:5077/swagger/index.html` in your browser.
+2. Initiate Authentication
 
-2. Click the **"Authorize"** button
+   - Look for the **"Authorize"** button (usually a lock icon)
+   - Click the button to open OAuth2 configuration dialog
+   
+   ![](images/test01.png)
 
-   This opens a dialog to input your OAuth credentials.
 
-3. Fill in the OAuth2 fields
+3. Configure OAuth2 Settings
+
+   - Fill in the authentication form
 
    - **Client ID:** Paste your Azure AD app’s client ID
-   - **Client Secret:** Paste your client secret
-   - **Scope:** check the listed scope
+   - **Scope:** check the API scope with access_as_user
+   - Leave Client Secret empty (not needed for SPA flow)
+   
+4. Authenticate
 
-4. Click **"Authorize"**
+   - Click "Authorize"
+   
+     ![](images/test02.png)
+     
+   - You'll be redirected to Microsoft login
+   - Sign in with your Azure AD credentials
+   - Grant consent if prompted
+   
+      ![](images/test04.png)
 
-   Swagger will request a token and apply it to all API calls.
+   
+5. Test API Endpoints
 
-5. Test Endpoints
+   - After successful authentication, click **Close** to test secured endpoints
 
-   Try calling any of the secured endpoints (e.g., /api/license/usage) to verify that authentication is working.
+     ![](images/test05.png)
+   
+   - Try calling /api/license/usage or similar endpoints. Expand the first API and click **Try it out**:
+   
+     ![](images/test06.png)
+     
+   - Click on **Execute**:
+   
+     ![](images/test07.png)
+   
+   - Verify you receive data (not 401 Unauthorized)
 
-> ℹ️
->
-> If you receive a 401 Unauthorized error, double-check your client credentials, scope, and that the Clara API is running with the correct Azure AD settings in appsettings.Development.json.
+     ![](images/test08.png)
 
+
+    #### 🔧 Troubleshooting Common Issues
+   | Issue               | Possible Cause             | Solution                                             |
+   |---------------------|----------------------------|------------------------------------------------------|
+   | 401 Unauthorized    | Invalid client credentials | Verify Client ID matches Azure registration          |
+   | Invalid scope error | Incorrect API scope format | Check scope format: `api://CLIENT_ID/access_as_user` |
+   | Redirect error      | Wrong redirect URI         | Ensure redirect URI matches Azure configuration      |
+   | Login loop          | Browser cache issues       | Clear browser cache or try incognito mode            |
+
+
+
+## 🧩 Part 4: External API Exposure
+
+This section teaches you how to securely expose your local Clara API to the internet for external testing. This is essential when integrating with cloud services like Power Platform, Copilot Studio, or third-party applications that need to access your API during development.
+
+### 🔍 Why External Exposure is Needed
+
+- **Cloud Service Integration:** Services like Power Platform can't reach localhost
+- **Third-party Testing:** External applications need public endpoints
+- **Mobile App Development:** Mobile apps require accessible APIs
+- **Webhook Testing:** Services that send callbacks need reachable URLs
+- **Team Collaboration:** Share your API with remote team members
+
+### ⚙️ Prerequisites
+
+ - Clara API running locally on `https://localhost:5077`
+ - Internet connection
+ - Administrative privileges (for some installations)
+ - Basic command line familiarity
+ 
 ---
-### 🧱 Step 6: Expose the API to the Internet Using ngrok
+### 🧱 Step 9: Expose API Using ngrok
 
-o test the Clara API with external services like Power Platform or Copilot Studio, you can expose your local API to the internet using https://ngrok.com/.
+#### 🌐 What is ngrok?
+ngrok is a secure tunneling service that creates a public URL pointing to your local development server. It acts as a reverse proxy, forwarding internet traffic to your local application.
+
+##### How it works:
+`Internet → ngrok Cloud → Your Local Machine → Clara API`
 
 1. Install ngrok
-Download and install ngrok from https://ngrok.com/download.
 
-2. Authenticate ngrok (first-time setup)
+   - Visit https://ngrok.com/download
+   - Download appropriate version for your OS
+   - Extract and install following platform-specific instructions
 
-You can find your auth token in your ngrok dashboard after signing up.
+2. Account Setup (First-time only)
 
-3. Start the tunnel
+   - Create free account at https://ngrok.com
+   - Navigate to Your Auth Token
+   - Copy your authentication token
+   
+     ![](images/ngrok01.png)
+     
+   - Run: ngrok config add-authtoken `YOUR_TOKEN_HERE`
 
-This will generate a public HTTPS URL like:
+3. Start tunnel
 
-https://abc123.ngrok.io
-4. Update Azure App Registration
-To test OAuth flows, update the redirect URI in your Azure App Registration to include the new ngrok URL.
+    ```PowerShell
+    ngrok http https://localhost:5077
+    ```
+   - Understanding the Output:
+   
+        - Session Status    online
+        - Account           your-email@domain.com
+        - Version           3.x.x
+        - Region            United States (us)
+        - Forwarding        https://abc123-def456.ngrok-free.app -> https://localhost:5077
+        
+   
+   ![](images/ngrok02.png)
 
-5. Test the API
-Use the ngrok URL to test the API from external tools like Postman or Power Platform custom connectors.
+4. Testing the Tunnel
 
-⚠️ Keep the ngrok tunnel running while testing. Restarting it will generate a new URL unless you have a paid plan with reserved domains.
+   - Click on the public URL (Forwarding) or copy it to your browser
+   - You may see an ngrok warning page (for free accounts)
+   
+5. Bypass Warning Page
+
+   - Click "Visit Site" to proceed
+   - This warning appears only on free accounts
+
+   ![](images/ngrok03.png)
+   
+5. Access Swagger Interface
+
+   - Navigate to: https://YOUR_NGROK_URL/swagger/index.html
+   - Verify the Swagger UI loads correctly
+
+     ![](images/ngrok04.png)
+
+> ℹ️ Important Notes:
+>
+>- Keep the ngrok tunnel running during testing
+>- Free ngrok URLs change each restart (consider paid plans for stable URLs)
+>- Never use ngrok tunnels in production environments
+>- Be cautious about exposing sensitive APIs publicly
+
+
+### 🔗 Additional Resources
+
+- [ngrok Documentation](https://ngrok.com/docs)
+- [Azure AD Authentication with ngrok](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-protocols)
+- [Power Platform Custom Connectors](https://docs.microsoft.com/en-us/connectors/custom-connectors/)
+- [API Security Best Practices](https://owasp.org/www-project-api-security)
+
+
+> ℹ️
+> 
+> Remember: ngrok is a powerful development tool, but with great power comes great responsibility. Always prioritize security and never expose sensitive production data through development tunnels.

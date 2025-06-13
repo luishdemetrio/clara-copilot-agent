@@ -8,26 +8,50 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Application Registration ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
 | ---- | ---- | ---- | 
 
 
-## 🔐 Securing Clara REST APIs with Azure App Registration
 
-This lab will guide you through the process of registering an application in Azure Active Directory (Azure AD) to secure the REST APIs used by the Clara agent.
+## Instructions
 
----
-
-## 🧰 Prerequisites
-
-- Azure subscription with admin access
-- Access to Azure Active Directory (AAD)
-- REST APIs deployed (e.g., on Azure App Service)
-- Postman or similar tool for testing (optional)
+In this hands-on lab you’ll learn how to register and configure Azure AD applications for both the API and the Copilot client.
 
 ---
 
-## 🧱 Step 1: Register a New Application in Azure AD
+## Lab Structure
+
+This lab is divided into three main parts:
+
+- 🧩 Part 1: Azure App Registration Setup for the Server API
+- 🧩 Part 2: Azure App Registration Setup for the Client App
+
+    
+Each part contains step-by-step instructions and visual callouts for important notes, warnings, and tips.
+
+
+>ℹ️ Note:
+>
+>You will configure two separate app registrations: one for the client (Copilot/consumer) and one for the server (API).
+
+### Why Two App Registrations?
+
+   - **Client App Registration:** Represents the frontend or tool that initiates the login flow (e.g., Copilot, Postman, Swagger UI).
+   - **Server App Registration (API):** Represents the backend API that requires access control and validates tokens.
+
+### Benefits:
+
+   - Clear permission boundaries
+   - Better security and token scoping
+   - Easier management of roles and consent
+
+--- 
+
+
+## 🧩 Part 1: Azure App Registration Setup for the Server API
+
+
+### 🧱 Step 1: Register a New Application
 
 1. Go to https://portal.azure.com
 2. Navigate to **Azure Active Directory** > **App registrations**
@@ -45,7 +69,7 @@ This lab will guide you through the process of registering an application in Azu
 
 ---
 
-## 🧱 Step 2: Configure API Permissions
+### 🧱 Step 2: Configure API Permissions
 
 1. In the app registration, go to **API permissions**
 2. Click **+ Add a permission**
@@ -70,7 +94,7 @@ This lab will guide you through the process of registering an application in Azu
 
 ---
 
-## 🧱 Step 3: Generate a Client Secret
+### 🧱 Step 3: Generate a Client Secret
 1. Go to **Certificates & secrets**
 2. Click **+ New client secret**
 3. Add a description (e.g., `Clara API Secret`) and choose an expiry
@@ -84,7 +108,7 @@ This lab will guide you through the process of registering an application in Azu
 
 ---
 
-## 🧱 Step 4: Define a Custom Scope and Expose the API
+### 🧱 Step 4: Define a Custom Scope and Expose the API
 
 To allow your REST API to be securely accessed by clients (like the Clar agent), you need to expose it as an API in Azure AD and define scopes.
 
@@ -102,3 +126,76 @@ To allow your REST API to be securely accessed by clients (like the Clar agent),
         - Click **Add scope** to save.
 
         ![](images/az07.png)
+        
+ 
+## 🧩 Part 2: Azure App Registration Setup for the Client App  
+  
+       
+### 🧱 Step 5: Register a New Application
+
+1. Go to https://portal.azure.com
+2. Navigate to **Azure Active Directory** > **App registrations**
+3. Click **+ New registration**
+
+   ![](images/az01.png)
+   
+4. Fill in the details:
+   - **Name**: `Clara Copilot Agent - App`
+   - **Supported account types**: Choose based on your org (e.g., "Single tenant")
+   - **Redirect URI**: Leave blank or set to `Web` - `https://localhost` for now
+5. Click **Register**
+
+   ![](images/azc01.png)
+
+---
+
+### 🧱 Step 2: Configure API Permissions
+
+1.  Go to **API permissions** 
+   - Click on **+ Add a permission**
+   - Choose **APIs my organization uses**
+   - Select the **Clara Copilot Agent - API**
+
+     ![](images/azc02.png)
+  
+   - Check the `access_as_user` scope
+
+   - Click **Add permissions**
+
+     ![](images/azc03.png)
+
+   - Click **Grant admin consent**
+  
+     ![](images/azc04.png)
+
+---
+
+## 🧱 Step 3: Generate a Client Secret
+1. Go to **Certificates & secrets**
+2. Click **+ New client secret**
+3. Add a description (e.g., `Clara API Secret`) and choose an expiry
+4. Click **Add**
+
+   ![](images/azc05.png)
+   
+5. **Copy the secret value** immediately — you won’t see it again!
+
+   ![](images/azc06.png)
+   
+## 🧱 Step 4: Add Postman Redirect URI:
+
+1. Go to **Authentication**.
+
+2. Under the **Redirect URIs** section, add the following URI, in case you want to test it later in Postman:
+
+    `https://oauth.pstmn.io/v1/browser-callback`
+
+3. Click Save to apply the changes.
+
+   ![](images/azc07.png)
+
+>ℹ Info:
+>
+> This URI is used by Postman to receive the authorization code after the user signs in. Without it, the OAuth flow will fail.
+
+
