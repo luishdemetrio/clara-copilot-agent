@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\github\\clara-copilot-agent\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\clara.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\models\\m365copilotusagereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\models\\m365copilotusagereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\services\\authorizecheckoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\services\\authorizecheckoperationfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\models\\m365copilotusagereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\models\\m365copilotusagereport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\clara.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C335A2E6-D54D-9BB8-56A5-6D0CB173B3AB}|Clara.API\\Clara.API.csproj|solutionrelative:clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "AuthorizeCheckOperationFilter.cs",
+              "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Services\\AuthorizeCheckOperationFilter.cs",
+              "RelativeDocumentMoniker": "Clara.API\\Services\\AuthorizeCheckOperationFilter.cs",
+              "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Services\\AuthorizeCheckOperationFilter.cs",
+              "RelativeToolTip": "Clara.API\\Services\\AuthorizeCheckOperationFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-12T12:26:16.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Clara.API.http",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Clara.API.http",
               "RelativeDocumentMoniker": "Clara.API\\Clara.API.http",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "M365CopilotUsageReport.cs",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Models\\M365CopilotUsageReport.cs",
               "RelativeDocumentMoniker": "Clara.API\\Models\\M365CopilotUsageReport.cs",
@@ -75,11 +92,12 @@
               "RelativeToolTip": "Clara.API\\Models\\M365CopilotUsageReport.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T12:05:31.84Z"
+              "WhenOpened": "2025-06-12T12:05:31.84Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Clara.API.csproj",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Clara.API.csproj",
               "RelativeDocumentMoniker": "Clara.API\\Clara.API.csproj",
@@ -91,27 +109,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CopilotController.cs",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Controllers\\CopilotController.cs",
               "RelativeDocumentMoniker": "Clara.API\\Controllers\\CopilotController.cs",
               "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Controllers\\CopilotController.cs",
               "RelativeToolTip": "Clara.API\\Controllers\\CopilotController.cs",
-              "ViewState": "AgIAADMAAABgZmZmZmYGwEQAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T12:04:29.965Z"
+              "WhenOpened": "2025-06-12T12:04:29.965Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Program.cs",
               "RelativeDocumentMoniker": "Clara.API\\Program.cs",
               "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Program.cs",
               "RelativeToolTip": "Clara.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAAHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-12T12:04:14.652Z"
+              "WhenOpened": "2025-06-12T12:04:14.652Z",
+              "EditorCaption": ""
             }
           ]
         }

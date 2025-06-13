@@ -30,7 +30,7 @@ public class CopilotController : ControllerBase
         _credential = credential;
         _httpClientFactory = httpClientFactory;
         _config = config;
-        _copilotSkuId = _config["CopilotSkuId"];
+        _copilotSkuId = _config["CopilotSkuId"]!;
     }
 
     // 1. List users with Copilot license
@@ -55,22 +55,22 @@ public class CopilotController : ControllerBase
         {
             var upn = record?.userPrincipalName as string;
             if (!string.IsNullOrEmpty(upn))
-                usageDict[upn] = record;
+                usageDict[upn] = record!;
         }
 
-        var inactive = users.Value
-            .Where(u => !usageDict.ContainsKey(u.UserPrincipalName))
+        var inactive = users!.Value!
+            .Where(u => !usageDict.ContainsKey(u.UserPrincipalName!))
             .Select(u =>
             {
                 // Try to get usage record (should be null for inactive, but you can still include fields)
-                dynamic usageRecord = null;
-                usageDict.TryGetValue(u.UserPrincipalName, out usageRecord);
+                dynamic? usageRecord = null;
+                usageDict.TryGetValue(u.UserPrincipalName!, out usageRecord);
 
                 return new M365CopilotUsageReport
                 {
-                    UserId = u.Id,
-                    UserDisplayName= u.DisplayName,
-                    UserPrincipalName = u.UserPrincipalName,
+                    UserId = u.Id!,
+                    UserDisplayName= u.DisplayName!,
+                    UserPrincipalName = u.UserPrincipalName!,
                     LastActivityDate = ParseNullableDateTime(usageRecord?.lastActivityDate),
                     CopilotChatLastActivityDate = ParseNullableDateTime(usageRecord?.copilotChatLastActivityDate),
                     MicrosoftTeamsCopilotLastActivityDate = ParseNullableDateTime(usageRecord?.microsoftTeamsCopilotLastActivityDate),

@@ -72,7 +72,6 @@ C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.bui
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.build.json.cache
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.development.json
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.csproj.Up2Date
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.dll
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\refint\Clara.API.dll
