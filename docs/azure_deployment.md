@@ -8,8 +8,8 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Application Registration ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |
-| ---- | ---- | ---- | 
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [Azure Application Registration guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [Local Deployment guide](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md) |[SharePoint M365 Copilot Wait List](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/sharepoint_deployment.md)
+| ---- | ---- | ---- |  ---- | 
 
 
 
@@ -128,7 +128,7 @@ To allow your REST API to be securely accessed by clients (like the Clar agent),
         ![](images/az07.png)
         
  
-## 🧩 Part 2: Azure App Registration Setup for the Client App  
+## 🧩 Part 2: Azure App Registration Setup for Copilot Studio
   
        
 ### 🧱 Step 5: Register a New Application
@@ -140,12 +140,12 @@ To allow your REST API to be securely accessed by clients (like the Clar agent),
    ![](images/az01.png)
    
 4. Fill in the details:
-   - **Name**: `Clara Copilot Agent - App`
+   - **Name**: `Clara Copilot Agent - Copilot Studio`
    - **Supported account types**: Choose based on your org (e.g., "Single tenant")
-   - **Redirect URI**: Leave blank or set to `Web` - `https://localhost` for now
+   - **Redirect URI**: Leave blank for now.
 5. Click **Register**
 
-   ![](images/azc01.png)
+   ![](images/azcs01.png)
 
 ---
 
@@ -156,17 +156,17 @@ To allow your REST API to be securely accessed by clients (like the Clar agent),
    - Choose **APIs my organization uses**
    - Select the **Clara Copilot Agent - API**
 
-     ![](images/azc02.png)
+     ![](images/azcs02.png)
   
    - Check the `access_as_user` scope
 
    - Click **Add permissions**
 
-     ![](images/azc03.png)
+     ![](images/azcs03.png)
 
    - Click **Grant admin consent**
   
-     ![](images/azc04.png)
+     ![](images/azcs04.png)
 
 ---
 
@@ -176,26 +176,28 @@ To allow your REST API to be securely accessed by clients (like the Clar agent),
 3. Add a description (e.g., `Clara API Secret`) and choose an expiry
 4. Click **Add**
 
-   ![](images/azc05.png)
+   ![](images/azcs05.png)
    
 5. **Copy the secret value** immediately — you won’t see it again!
 
-   ![](images/azc06.png)
+   ![](images/azcs06.png)
    
-## 🧱 Step 4: Add Postman Redirect URI:
+## 🧱 Step 4: Add Custom Connector Redirect URI:
 
 1. Go to **Authentication**.
 
-2. Under the **Redirect URIs** section, add the following URI, in case you want to test it later in Postman:
+2. Under the **Redirect URIs** section, add the following URI:
 
-    `https://oauth.pstmn.io/v1/browser-callback`
+    `https://global.consent.azure-apim.net/redirect/clara-20apis-5fe4b1fa84f5c2dfb1-5f0af71351437b9f07`
 
-3. Click Save to apply the changes.
+3. Enable Access Tokens.
 
-   ![](images/azc07.png)
+4. Click Save to apply the changes.
+
+   ![](images/azcs07.png)
 
 >ℹ Info:
 >
-> This URI is used by Postman to receive the authorization code after the user signs in. Without it, the OAuth flow will fail.
+> This URI is used by Copilot Studio to receive the authorization code after the user signs in. Without it, the OAuth flow will fail.
 
 
