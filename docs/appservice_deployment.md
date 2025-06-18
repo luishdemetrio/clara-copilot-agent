@@ -57,7 +57,7 @@
        ![](images/as06.png) 
    
 ---   
-### Step 5: Configure Environment Variables for Clara REST API
+### Step 3: Configure Environment Variables for Clara REST API
 
    1. Open Your Web App in Azure Portal.
       
@@ -132,7 +132,7 @@
          ![](images/as08.png) 
        
 ---   
-### 🧱 Step 6: Configure Deployment Center for GitHub Integration
+### 🧱 Step 4: Configure Deployment Center for GitHub Integration
 
    1. Once the Web App is deployed, go to your new Web App resource.
    2. In the left menu, scroll down and click on Deployment Center.
@@ -145,7 +145,7 @@
    6. Click Save or Finish to set up continuous deployment.
 
 ---   
-### 🧱 Step 4: Monitor Deployment
+### 🧱 Step 5: Monitor Deployment
 
   1. In the Deployment Center, you can view the status of your deployment.
   2. Wait for the deployment to complete. You’ll see logs and status updates.
