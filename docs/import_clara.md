@@ -146,13 +146,11 @@
    
       ```json
          {
-           "totalLicenses": 100,
-           "assignedLicenses": 75,
-           "availableLicenses": 25
+           "totalLicenses": 100,
+           "assignedLicenses": 75,
+           "availableLicenses": 25
          }
       ```
-
-
 ---
 ### 🧱  Step 4: Open the Agent in Copilot Studio
 
@@ -228,3 +226,114 @@
      ```
      
      ![](images/import20.png) 
+     
+---
+### 🧱  Step 5: Configure the SharePoint List Reference for the Waitlist
+
+
+**1. Update the SharePoint Connector Settings**
+
+   - Go to the Tools tab in your Clara agent.
+   - Find and click on the **Get Copilot Waitlist Users** connector.
+     
+     ![](images/st01.png)
+     
+**2. Set SharePoint Site and List**
+
+   - In the connector settings:
+     - Set the **Site Address** to your SharePoint site (e.g., https://yourcompany.sharepoint.com/sites/your-site).
+     
+     - Set the **List Name** to the name of your SharePoint list that contains the Copilot waitlist (e.g., M365 Copilot Waitlist).
+     
+   - Click **Save** to apply your changes.     
+   
+     ![](images/st02.png)
+     
+   > ℹ️
+   >
+   > For more details about the M365 Copilot waitlist check the guide [SharePoint M365 Copilot Wait List](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/sharepoint_deployment.md) 
+     
+**3. Test the SharePoint Connector**     
+
+   - Go to the Test your agent panel.
+   - Use the following prompt to test the SharePoint connector:
+
+     `What's the current waitlist status?`
+     
+   - You will be prompted to connect. Click **Connect**.
+   
+   
+     ![](images/st03.png)
+     
+**4. Manage Your SharePoint Connection**
+
+   - In the **Manage your connections** page, locate the SharePoint connector and click **Connect**.
+   
+     ![](images/st04.png)
+     
+   - In the **Create or pick a connection** dialog, sign in with your Microsoft 365 credentials and click **Submit**.
+   
+     ![](images/st05.png)
+     
+   - After signing in, the connection status should show as Connected.
+   
+     ![](images/st06.png)
+     
+**5. Retry the Test**     
+
+   - Return to Copilot Studio and click Retry in the Test your agent panel.
+   
+     ![](images/st07.png)
+     
+**6. Review the Results**
+   
+   - The expected result is a list of items from your M365 Copilot Waitlist SharePoint list.
+   - If your SharePoint list is empty, you may see a message like:
+
+     ```plaintext
+     It appears that there are no users currently on the waitlist for Copilot licenses. If you have any other questions or need further assistance, please let me know!
+     ```
+
+   - This confirms that the connection is working.
+
+   - Tip: You can add sample items to your SharePoint list to see how the agent responds with actual data.     
+   
+---
+### 🧱  Step 6: Update the Waitlist Status to Approved   
+
+**1. Open the Topic**
+   
+   - Go to the **Topics** tab in Copilot Studio.
+   - Click on the topic named **"Update the waitlist status to approved"**.
+   
+      ![](images/ul01.png)
+   
+**2. Access the Flow Details**
+   
+   - In the topic editor, locate the Action node.
+   - Click on **View flow details**. 
+   
+     ![](images/ul02.png)
+     
+**3. Edit the Update SharePoint Wait List Flow**
+
+   - In the flow details, switch to the **Designer** tab.
+   
+     ![](images/ul03.png)
+     
+   - Find and click on the **Update item** node.   
+   
+     ![](images/ul04.png)
+     
+**4. Update SharePoint Site and List**
+   
+   - In the Update item node:
+   
+   - Set the **Site Address** to your SharePoint site (e.g., https://yourcompany.sharepoint.com/sites/your-site).
+
+   - Set the **List Name** to your SharePoint waitlist list (e.g., M365 Copilot Waitlist).
+
+   - After updating the Site Address and List Name, click **Publish** to save and apply your changes.
+   
+     ![](images/ul05.png)
+     
