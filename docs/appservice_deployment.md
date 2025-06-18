@@ -57,7 +57,82 @@
        ![](images/as06.png) 
    
 ---   
-### 🧱 Step 3: Configure Deployment Center for GitHub Integration
+### Step 5: Configure Environment Variables for Clara REST API
+
+   1. Open Your Web App in Azure Portal.
+      
+   2. Navigate to Environment Variables.
+   
+      - In the left menu under **Settings**, click on **Environment Variables**.
+      
+      - Under the **Application settings** tab, click on **Advanced edit** (top right of the Application settings section).
+      
+      - Replace the existing content (if any) with the following JSON:
+      
+        ```json
+        [
+          {
+            "name": "ASPNETCORE_ENVIRONMENT",
+            "value": "Development",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:Audience",
+            "value": "api://<Clara Copilot Agent - API Client ID>",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:Authority",
+            "value": "https://login.microsoftonline.com/<YOUR TENANT ID>",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:ClientId",
+            "value": "<Clara Copilot Agent - API Client ID>",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:ClientSecret",
+            "value": "<Clara Copilot Agent - API Client Secret>",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:Instance",
+            "value": "https://login.microsoftonline.com/",
+            "slotSetting": false
+          },
+          {
+            "name": "AzureAd:TenantId",
+            "value": "<YOUR TENANT ID>",
+            "slotSetting": false
+          },
+          {
+            "name": "CopilotSkuId",
+            "value": "<YOUR COPILOT SKU ID>",
+            "slotSetting": false
+          },
+          {
+            "name": "Swagger:ClientId",
+            "value": "<Clara Copilot Agent - Swagger Client ID> (opcional)",
+            "slotSetting": false
+          }
+        ]
+        ```
+    
+       - Replace <Clara Copilot Agent - API Client ID>, <Clara Copilot Agent - API Client Secret>, <YOUR TENANT ID>, <YOUR COPILOT SKU ID>, and <Clara Copilot Agent - Swagger Client ID> with the values from your environment.
+       
+       - Click **OK**.
+    
+         ![](images/as07.png) 
+
+       - Ensure that the settings were created.
+       
+       - Click **Apply**.
+       
+         ![](images/as08.png) 
+       
+---   
+### 🧱 Step 6: Configure Deployment Center for GitHub Integration
 
    1. Once the Web App is deployed, go to your new Web App resource.
    2. In the left menu, scroll down and click on Deployment Center.
@@ -76,3 +151,5 @@
   2. Wait for the deployment to complete. You’ll see logs and status updates.
   3. Once complete, your Clara REST API will be live at:
 https://<your-app-name>.azurewebsites.net/
+
+
