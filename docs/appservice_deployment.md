@@ -59,12 +59,10 @@
 ---   
 ### Step 3: Configure Environment Variables for Clara REST API
 
-   1. Open Your Web App in Azure Portal.
+   1. Once the Web App is deployed, go to your new Web App resource.
       
-   2. Navigate to Environment Variables.
+   2. In the left menu, scroll down and click on **Environment Variables**.
    
-      - In the left menu under **Settings**, click on **Environment Variables**.
-      
       - Under the **Application settings** tab, click on **Advanced edit** (top right of the Application settings section).
       
       - Replace the existing content (if any) with the following JSON:
@@ -134,22 +132,55 @@
 ---   
 ### 🧱 Step 4: Configure Deployment Center for GitHub Integration
 
-   1. Once the Web App is deployed, go to your new Web App resource.
-   2. In the left menu, scroll down and click on Deployment Center.
-   3. Under Source, select GitHub.
-   4. Sign in to your GitHub account if prompted and authorize Azure.
-   5. Select the following:
-      - Organization: Your GitHub organization or username.
-      - Repository: The repository containing the Clara REST API code.
-      - Branch: The branch you want to deploy (e.g., main).
-   6. Click Save or Finish to set up continuous deployment.
+   
+   1. In the left menu, click on **Deployment Center**.
+   2. Under **Source**, select **External Git**.
+   3. Enable **SCM Basic Authentication** (if not already enabled):
+   
+      - If Basic authentication is disabled, click the **Enable here** link.
+   
+        ![](images/as09.png) 
+      
+      - You will be redirected to the **Configuration** page.
+      
+      - Enable the **SCM Basic Auth Publishing Credentials** option and click **Save**.
+      
+        ![](images/as10.png) 
+        
+      - In the left menu, click on **Overview**.  
+      
+      - Click on **Restart** to restart the app service.
+      
+        ![](images/as11.png) 
+      
+      - After the restart, return to **Deployment Center**.
+      
+   4. Configure your repository settings:
+      - Repository: The repository containing the Clara REST API code:
+        
+        `https://github.com/luishdemetrio/clara-copilot-agent.git`
+        
+      - Branch: The branch you want to deploy:
+      
+        `main`
+        
+   5. Click **Save** to set up continuous deployment.
+   
+       ![](images/as12.png) 
 
 ---   
 ### 🧱 Step 5: Monitor Deployment
 
   1. In the Deployment Center, you can view the status of your deployment.
   2. Wait for the deployment to complete. You’ll see logs and status updates.
+  
+     ![](images/as13.png) 
+     
   3. Once complete, your Clara REST API will be live at:
-https://<your-app-name>.azurewebsites.net/
+  
+     `https://<your-app-name>.azurewebsites.net/swagger`
+     
+     
+      ![](images/as14.png) 
 
 
