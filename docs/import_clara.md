@@ -321,10 +321,7 @@
    
      ![](images/ul03.png)
      
-   - Find and click on the **Update item** node.   
    
-     ![](images/ul04.png)
-     
 **4. Update SharePoint Site and List**
    
    - In the Update item node:
@@ -335,5 +332,5 @@
 
    - After updating the Site Address and List Name, click **Publish** to save and apply your changes.
    
-     ![](images/ul05.png)
+      ![](images/ul04.png)
      
