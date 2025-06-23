@@ -117,7 +117,7 @@
         ]
         ```
     
-       - Replace <Clara Copilot Agent - API Client ID>, <Clara Copilot Agent - API Client Secret>, <YOUR TENANT ID>, <YOUR COPILOT SKU ID>, and <Clara Copilot Agent - Swagger Client ID> with the values from your environment.
+       - Replace <Clara Copilot Agent - API Client ID>, <Clara Copilot Agent - API Client Secret>, <YOUR TENANT ID> and <Clara Copilot Agent - Swagger Client ID> with the values from your environment.
        
        - Click **OK**.
     
