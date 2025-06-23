@@ -106,7 +106,7 @@
           },
           {
             "name": "CopilotSkuId",
-            "value": "<YOUR COPILOT SKU ID>",
+            "value": "639dec6b-bb19-468b-871c-c5c441c4b0cb",
             "slotSetting": false
           },
           {
