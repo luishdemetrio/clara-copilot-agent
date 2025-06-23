@@ -50,6 +50,7 @@ Managing M365 Copilot licenses across large organizations can be complex and tim
 ## Prerequisites
 
 - Microsoft 365 E3/E5 licenses with Copilot
+- At least 50 Copilot licenses assigned in your tenant to enable telemetry and usage reporting ([Connect to the Microsoft Copilot Dashboard for Microsoft 365 customers](https://learn.microsoft.com/viva/insights/org-team-insights/copilot-dashboard))
 - Microsoft Copilot Studio access
 - SharePoint Online
 - Power Automate Premium
