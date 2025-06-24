@@ -1,4 +1,6 @@
 using Azure.Identity;
+using Clara.API.Classes;
+using Clara.API.Interfaces;
 using Clara.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -27,17 +29,11 @@ builder.Services.AddSingleton<GraphServiceClient>(sp =>
     return new GraphServiceClient(credential);
 });
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowSwaggerUI", builder =>
-    {
-        builder.WithOrigins(
-            "http://localhost:5077",
-            "https://your-ngrok-subdomain.ngrok.io")
-               .AllowAnyHeader()
-               .AllowAnyMethod();
-    });
-});
+builder.Services.AddScoped<ICopilotUsageService, CopilotUsageService>();
+builder.Services.AddScoped<ICopilotLicenseService, CopilotLicenseService>();
+builder.Services.AddScoped<ICopilotGroupService, CopilotGroupService>();
+
+
 
 builder.Services.AddSwaggerGen(c =>
 {

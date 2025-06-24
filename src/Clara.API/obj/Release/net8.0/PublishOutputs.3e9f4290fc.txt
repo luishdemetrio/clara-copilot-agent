@@ -1,6 +1,5 @@
 C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\Clara.API.exe
 C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\appsettings.Development.json
-C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\appsettings.json
 C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\Clara.API.dll
 C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\Clara.API.deps.json
 C:\github\clara-copilot-agent\src\Clara.API\bin\Release\net8.0\publish\Clara.API.runtimeconfig.json

@@ -1,4 +1,4 @@
-﻿namespace Clara.API.Controllers;
+﻿namespace Clara.API.Models;
 
 public class M365CopilotUsageReport
 {
