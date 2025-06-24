@@ -24,7 +24,7 @@ jobs:
           dotnet-version: 'v8.0'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build src/Clara.API/Clara.API.csproj --configuration Release
 
       - name: dotnet publish
         run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
