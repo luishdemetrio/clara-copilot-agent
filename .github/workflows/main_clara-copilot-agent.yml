@@ -62,5 +62,5 @@ jobs:
         with:
           app-name: 'clara-copilot-agent'
           slot-name: 'Production'
-          package: .
+          package: .net-app
           
