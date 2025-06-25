@@ -78,7 +78,7 @@ graph TB
 
 ### Components
 
-1. **LANCE Agent (Copilot Studio)**
+1. **Clara Agent (Copilot Studio)**
    - Natural language interface for IT administrators
    - Intelligent conversation flows with safety confirmations
    - Integration orchestration and workflow management
