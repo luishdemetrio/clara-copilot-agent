@@ -5,6 +5,9 @@ public class M365CopilotUsageReport
     public required string UserId { get; set; }
     public required string UserDisplayName { get; set; }
     public string? UserPrincipalName { get; set; }
+
+    public string? UserDepartment { get; set; }
+
     public dynamic? LastActivityDate { get; set; }
     public dynamic? CopilotChatLastActivityDate { get; set; }
     public dynamic? MicrosoftTeamsCopilotLastActivityDate { get; set; }
