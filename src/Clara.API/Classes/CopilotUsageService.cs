@@ -35,7 +35,7 @@ public class CopilotUsageService : ICopilotUsageService
             .GetAsync(requestConfig =>
             {
                 requestConfig.QueryParameters.Filter = $"assignedLicenses/any(x:x/skuId eq {_copilotSkuId})";
-                requestConfig.QueryParameters.Select = new[] { "id", "displayName", "userPrincipalName" };
+                requestConfig.QueryParameters.Select = new[] { "id", "displayName", "userPrincipalName", "department" };
             });
 
         var usageList = await GetCopilotUsageReport();
@@ -60,6 +60,7 @@ public class CopilotUsageService : ICopilotUsageService
                     UserId = u.Id!,
                     UserDisplayName = u.DisplayName!,
                     UserPrincipalName = u.UserPrincipalName!,
+                    UserDepartment = u.Department!,
                     LastActivityDate = ParseNullableDateTime(usageRecord?.lastActivityDate),
                     CopilotChatLastActivityDate = ParseNullableDateTime(usageRecord?.copilotChatLastActivityDate),
                     MicrosoftTeamsCopilotLastActivityDate = ParseNullableDateTime(usageRecord?.microsoftTeamsCopilotLastActivityDate),
