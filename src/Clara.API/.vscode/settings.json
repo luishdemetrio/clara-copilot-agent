@@ -1,5 +1,0 @@
-{
-    "appService.preDeployTask": "publish-release",
-    "appService.deploySubpath": "bin\\Release\\net8.0\\publish",
-    "appService.defaultWebAppToDeploy": "/subscriptions/6788dd01-bec1-4d57-a937-d516c786741c/resourceGroups/rg-Clara/providers/Microsoft.Web/sites/clara-copilot-agent"
-}
