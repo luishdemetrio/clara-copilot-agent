@@ -81,35 +81,48 @@ public class CopilotUsageService : ICopilotUsageService
     // --- Helper methods ---
 
     private async Task<List<dynamic>> GetCopilotUsageReport()
-    {
-        var token = await _credential.GetTokenAsync(
-            new Azure.Core.TokenRequestContext(new[] { "https://graph.microsoft.com/.default" }));
+ {
 
-        var httpClient = _httpClientFactory.CreateClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
+     var token = await _credential.GetTokenAsync(
+     new Azure.Core.TokenRequestContext(new[] { "https://graph.microsoft.com/.default" }));
 
-        var response = await httpClient.GetAsync(_m365CopilotDashboardUrl);
+     var httpClient = _httpClientFactory.CreateClient();
+     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
 
-        if (!response.IsSuccessStatusCode)
-        {
-            var errorContent = await response.Content.ReadAsStringAsync();
-            // Log or handle errorContent as needed
-            return new List<dynamic>();
-        }
+     var usageList = new List<dynamic>();
+     string requestUrl = _m365CopilotDashboardUrl;
 
-        var stream = await response.Content.ReadAsStreamAsync();
-        var usageList = new List<dynamic>();
-        using (var reader = new StreamReader(stream))
-        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-        {
-            var records = csv.GetRecords<dynamic>();
-            foreach (var record in records)
-            {
-                usageList.Add(record);
-            }
-        }
-        return usageList;
-    }
+     while (!string.IsNullOrEmpty(requestUrl))
+     {
+         var response = await httpClient.GetAsync(requestUrl);
+
+         if (!response.IsSuccessStatusCode)
+         {
+             var errorContent = await response.Content.ReadAsStringAsync();
+             // Log or handle errorContent as needed
+             return new List<dynamic>();
+         }
+
+         var jsonString = await response.Content.ReadAsStringAsync();
+         var json = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
+
+         // The data is usually under the "value" property
+         var records = json["value"];
+         if (records != null)
+         {
+             foreach (var record in records)
+             {
+                 usageList.Add(record);
+             }
+         }
+
+         // Check for pagination
+         requestUrl = json["@odata.nextLink"]?.ToString()!;
+     }
+
+     return usageList;
+
+ }
 
     private DateTime? ParseNullableDateTime(string value)
     {
