@@ -27,8 +27,10 @@ public class CopilotUsageService : ICopilotUsageService
         _m365CopilotDashboardUrl = config["M365CopilotDashboardUrl"]!;
     }
 
-    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync()
+    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync(int? days = null)
     {
+        
+        
         var users = await _graphClient.Users
             .GetAsync(requestConfig =>
             {
@@ -45,6 +47,8 @@ public class CopilotUsageService : ICopilotUsageService
             if (!string.IsNullOrEmpty(upn))
                 usageDict[upn] = record!;
         }
+
+        var now = DateTime.UtcNow;
 
         var inactive = users!.Value!
             .Where(u => !usageDict.ContainsKey(u.UserPrincipalName!))
@@ -70,6 +74,20 @@ public class CopilotUsageService : ICopilotUsageService
                     LoopCopilotLastActivityDate = ParseNullableDateTime(usageRecord?.loopCopilotLastActivityDate)
                 };
             });
+
+        
+        if (days.HasValue)
+        {
+            inactive = inactive.Where(report =>
+                report.LastActivityDate == null ||
+                (
+                    report.LastActivityDate is DateTime lastActivity &&
+                    (now - lastActivity).TotalDays >= days.Value
+                )
+            );
+        }
+
+    
 
         return inactive;
     }

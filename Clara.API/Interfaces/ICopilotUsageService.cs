@@ -5,5 +5,5 @@ using Clara.API.Models;
 
 public interface ICopilotUsageService
 {
-    Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync();
+    Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync(int? days = null);
 }
