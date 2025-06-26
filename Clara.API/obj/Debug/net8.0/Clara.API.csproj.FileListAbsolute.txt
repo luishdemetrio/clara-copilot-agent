@@ -65,6 +65,7 @@ C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.AssemblyI
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.csproj.CoreCompileInputs.cache
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.MvcApplicationPartsAssemblyInfo.cs
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.MvcApplicationPartsAssemblyInfo.cache
+C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.sourcelink.json
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\scopedcss\bundle\Clara.API.styles.css
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\staticwebassets.build.json.cache
@@ -76,4 +77,3 @@ C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\refint\Clara.API.dl
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.pdb
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.genruntimeconfig.cache
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\ref\Clara.API.dll
-C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.sourcelink.json

@@ -78,7 +78,7 @@ public class CopilotUsageService : ICopilotUsageService
 
     // --- Helper methods ---
 
-   private async Task<List<dynamic>> GetCopilotUsageReport()
+    private async Task<List<dynamic>> GetCopilotUsageReport()
  {
 
      var token = await _credential.GetTokenAsync(
