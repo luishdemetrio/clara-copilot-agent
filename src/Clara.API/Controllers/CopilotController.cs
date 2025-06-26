@@ -35,9 +35,9 @@ public class CopilotController : ControllerBase
     // List users with Copilot license
     [HttpGet("usage-report")]
     [Authorize]
-    public async Task<IActionResult> GetM365CopilotUsageReport()
+    public async Task<IActionResult> GetM365CopilotUsageReport(int? days = null)
     {
-        var inactive = await _usageService.GetInactiveUsersAsync();
+        var inactive = await _usageService.GetInactiveUsersAsync(days);
         return Ok(inactive);
     }
 

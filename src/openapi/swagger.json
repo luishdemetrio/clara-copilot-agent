@@ -1,0 +1,171 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Lance.API",
+    "version": "1.0",
+    "description": "APIs to list, assign, and remove Microsoft 365 Copilot licenses, and to retrieve usage reports for license optimization and automation workflows."
+  },
+  "servers": [
+    {
+      "url": "https://valued-weasel-stirring.ngrok-free.app"
+    }
+  ],
+  "paths": {
+    "/api/Copilot/usage-report": {
+      "get": {
+        "operationId":"GetCopilotUsageReport",
+        "summary": "Get Copilot Usage Report",
+        "description": "Retrieves the full usage report from the M365 Copilot Usage Report. This includes user activity across Copilot-enabled apps and is used to identify inactive or low-usage users.",
+        "tags": ["Copilot"],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/remove-license/{userId}": {
+      "post": {
+        "operationId": "RemoveCopilotLicensebyUserID",
+        "summary": "Remove Copilot License by User ID",
+        "description": "Removes the Microsoft 365 Copilot license from a user identified by their Azure AD user ID. Used when deactivating or reclaiming licenses from inactive users.",
+        "tags": ["Copilot"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/remove-license-by-email/{userEmail}": {
+      "post": {
+        "operationId": "RemoveCopilotLicensebyEmail",
+        "summary": "Remove Copilot License by Email",
+        "description": "Removes the Microsoft 365 Copilot license from a user identified by their email address. This endpoint resolves the user ID internally and is useful for admin-friendly workflows.",
+        "tags": ["Copilot"],
+        "parameters": [
+          {
+            "name": "userEmail",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/assign-license/{userId}": {
+      "post": {
+        "operationId": "AssignCopilotLicensebyUserID",
+        "summary": "Assign Copilot License by User ID",
+        "description": "Assigns a Microsoft 365 Copilot license to a user using their Azure AD user ID. Typically used when reassigning licenses to eligible users.",
+        "tags": ["Copilot"],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/assign-license-by-email/{userEmail}": {
+      "post": {
+        "operationId": "AssignCopilotLicensebyEmail",
+        "summary": "Assign Copilot License by Email",
+        "description": "Assigns a Microsoft 365 Copilot license to a user identified by their email address. This endpoint resolves the user ID internally and simplifies license assignment workflows.",
+        "tags": ["Copilot"],
+        "parameters": [
+          {
+            "name": "userEmail",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    },
+    "/api/Copilot/usage-details": {
+      "get": {
+        "operationId": "GetCopilotUsageDetails",
+        "summary": "Get Copilot Usage Details",
+        "description": "Returns detailed usage metrics for each user with a Copilot license, including last activity per application (Teams, Word, Outlook, etc.). Useful for license optimization and user engagement tracking.",
+        "tags": ["Copilot"],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "security": [
+          {
+            "oauth2": ["api://<your-client-id>/.default"]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://login.microsoftonline.com/b5d31b4e-6d83-4373-b61b-de1b0cd6f140/oauth2/v2.0/authorize",
+            "tokenUrl": "https://login.microsoftonline.com/b5d31b4e-6d83-4373-b61b-de1b0cd6f140/oauth2/v2.0/token",
+            "scopes": {
+              "api://28d4ccf2-99fb-47e2-ad49-58677a54c6f1/access_as_user": "Access API"
+            }
+          }
+        }
+      }
+    }
+  }
+}

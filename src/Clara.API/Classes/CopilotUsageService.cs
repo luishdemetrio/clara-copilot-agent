@@ -1,9 +1,7 @@
 using Azure.Identity;
 using Clara.API.Models;
 using Microsoft.Graph;
-using System.Globalization;
 using System.Net.Http.Headers;
-using CsvHelper;
 using Clara.API.Interfaces;
 
 namespace Clara.API.Classes;
@@ -29,7 +27,7 @@ public class CopilotUsageService : ICopilotUsageService
         _m365CopilotDashboardUrl = config["M365CopilotDashboardUrl"]!;
     }
 
-    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync()
+    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync(int? days = null)
     {
         var users = await _graphClient.Users
             .GetAsync(requestConfig =>
@@ -73,6 +71,22 @@ public class CopilotUsageService : ICopilotUsageService
                 };
             });
 
+        var now = DateTime.UtcNow;
+        
+        if (days.HasValue)
+        {
+            inactive = inactive.Where(report =>
+                report.LastActivityDate == null ||
+                (
+                    report.LastActivityDate is DateTime lastActivity &&
+                    (now - lastActivity).TotalDays >= days.Value
+                )
+            );
+        }
+
+
+
+
         return inactive;
     }
 
@@ -80,7 +94,7 @@ public class CopilotUsageService : ICopilotUsageService
 
     // --- Helper methods ---
 
-    private async Task<List<dynamic>> GetCopilotUsageReport()
+   private async Task<List<dynamic>> GetCopilotUsageReport()
  {
 
      var token = await _credential.GetTokenAsync(

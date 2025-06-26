@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/Clara.API/appsettings.Development.json
+/src/Clara.API/.vs
+/src/Clara.API/obj/*
+/src/Clara.API/bin/*
