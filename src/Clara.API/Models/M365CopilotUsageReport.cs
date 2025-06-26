@@ -8,13 +8,13 @@ public class M365CopilotUsageReport
 
     public string? UserDepartment { get; set; }
 
-    public dynamic? LastActivityDate { get; set; }
-    public dynamic? CopilotChatLastActivityDate { get; set; }
-    public dynamic? MicrosoftTeamsCopilotLastActivityDate { get; set; }
-    public dynamic? WordCopilotLastActivityDate { get; set; }
-    public dynamic? ExcelCopilotLastActivityDate { get; set; }
-    public dynamic? PowerPointCopilotLastActivityDate { get; set; }
-    public dynamic? OutlookCopilotLastActivityDate { get; set; }
-    public dynamic? OneNoteCopilotLastActivityDate { get; set; }
-    public dynamic? LoopCopilotLastActivityDate { get; set; }
+    public DateTime? LastActivityDate { get; set; }
+    public DateTime? CopilotChatLastActivityDate { get; set; }
+    public DateTime? MicrosoftTeamsCopilotLastActivityDate { get; set; }
+    public DateTime? WordCopilotLastActivityDate { get; set; }
+    public DateTime? ExcelCopilotLastActivityDate { get; set; }
+    public DateTime? PowerPointCopilotLastActivityDate { get; set; }
+    public DateTime? OutlookCopilotLastActivityDate { get; set; }
+    public DateTime? OneNoteCopilotLastActivityDate { get; set; }
+    public DateTime? LoopCopilotLastActivityDate { get; set; }
 }

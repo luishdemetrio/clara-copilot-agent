@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Clara.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+62f6199f39e944ab15a176347d56cb8ee6f49376")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c395128e0dffc856598af1fac4b1b3455f8c5d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Clara.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Clara.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

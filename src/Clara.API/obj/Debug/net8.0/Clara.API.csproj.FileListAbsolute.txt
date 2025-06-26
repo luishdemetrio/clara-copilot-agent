@@ -1,4 +1,3 @@
-C:\github\clara-copilot-agent\src\Clara.API\bin\Debug\net8.0\appsettings.Development.json
 C:\github\clara-copilot-agent\src\Clara.API\bin\Debug\net8.0\appsettings.json
 C:\github\clara-copilot-agent\src\Clara.API\bin\Debug\net8.0\Clara.API.staticwebassets.endpoints.json
 C:\github\clara-copilot-agent\src\Clara.API\bin\Debug\net8.0\Clara.API.exe
@@ -77,3 +76,4 @@ C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.pdb
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.genruntimeconfig.cache
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\ref\Clara.API.dll
 C:\github\clara-copilot-agent\src\Clara.API\obj\Debug\net8.0\Clara.API.sourcelink.json
+C:\github\clara-copilot-agent\src\Clara.API\bin\Debug\net8.0\appsettings.Development.json
