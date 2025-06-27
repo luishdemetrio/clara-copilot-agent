@@ -180,8 +180,8 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 ## 🙋‍♀️ Support
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/lance-copilot-agent/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/lance-copilot-agent/discussions)
-- **Documentation**: [Wiki](https://github.com/yourusername/lance-copilot-agent/wiki)
+- **Discussions**: [GitHub Discussions](https://github.com/luishdemetrio/clara-copilot-agent/discussions)
+- **Documentation**: [Wiki](https://github.com/luishdemetrio/clara-copilot-agent/wiki)
 
 ## 🌟 Acknowledgments
 
