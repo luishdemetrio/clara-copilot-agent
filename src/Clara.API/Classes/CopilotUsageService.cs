@@ -90,7 +90,7 @@ public class CopilotUsageService : ICopilotUsageService
                             report.LastActivityDate == null ||
                             (
                                 report.LastActivityDate is DateTime lastActivity &&
-                                (DateTime.UtcNow.Subtract(lastActivity)).TotalDays <= days.Value
+                                (DateTime.UtcNow.Subtract(lastActivity)).TotalDays >= days.Value
                             )
                        );
 
