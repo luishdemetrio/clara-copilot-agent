@@ -113,11 +113,25 @@
             "name": "Swagger:ClientId",
             "value": "<Clara Copilot Agent - Swagger Client ID> (opcional)",
             "slotSetting": false
-          }
+          },
+          {
+            "name": "M365CopilotDashboardUrl",
+            "value": "https://graph.microsoft.com/beta/reports/getMicrosoft365CopilotUsageUserDetail(period='D30')?$format=application/json",
+            "slotSetting": false
+          },
+          {
+            "name": "CopilotGroupName",
+            "value": "M365 Copilot Users",
+            "slotSetting": false
+          },
         ]
         ```
     
-       - Replace <Clara Copilot Agent - API Client ID>, <Clara Copilot Agent - API Client Secret>, <YOUR TENANT ID> and <Clara Copilot Agent - Swagger Client ID> with the values from your environment.
+      - Replace <Clara Copilot Agent - API Client ID>, <Clara Copilot Agent - API Client Secret>, <YOUR TENANT ID>, and <Clara Copilot Agent - Swagger Client ID> with the corresponding values from your environment.
+
+      > ℹ️
+      >
+      >The **CopilotGroupName** parameter is optional. Use it if you prefer to assign or remove licenses via a group rather than directly to individual users.
        
        - Click **OK**.
     
