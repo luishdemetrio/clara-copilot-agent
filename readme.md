@@ -8,7 +8,7 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [1. Azure Application Registration guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/azure_deployment.md)  | [2. Azure REST API](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/appservice_deployment.md) |[3. SharePoint M365 Copilot Wait List](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/sharepoint_deployment.md) |[4. Import CLARA to Copilot Studio](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/import_clara.md) | [(Opcional) Local Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/blob/main/docs/local_deployment.md)
+| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [1. Azure Application Registration guide ](https://github.com/luishdemetrio/clara-copilot-agent/wiki/1.-Azure-Application-Registration-guide)  | [2. Azure REST API](https://github.com/luishdemetrio/clara-copilot-agent/wiki/2.-Azure-REST-API) |[3. SharePoint M365 Copilot Wait List](https://github.com/luishdemetrio/clara-copilot-agent/wiki/3.-Create-the-Required-SharePoint-Lists) |[4. Import CLARA to Copilot Studio](https://github.com/luishdemetrio/clara-copilot-agent/wiki/4.-Importing-CLARA-Agent-into-Copilot-Studio) | [(Opcional) Local Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/wiki/Local-Deployment)
 | ---- | ---- | ---- |  ---- | ---- | ---- |  
 
 ## 🎯 Overview
