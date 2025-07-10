@@ -6,7 +6,7 @@
 
 **Clara** is an intelligent AI agent built on Microsoft Copilot Studio that revolutionizes M365 Copilot license management for enterprises. It automates license monitoring, optimizes allocation, and streamlines user communication to ensure maximum ROI on your M365 Copilot investment.
 
-![](images/Clara.png)
+![](images/Clara_smaller.png)
 
 ---
 
@@ -18,7 +18,18 @@ Clara helps IT teams:
 - Communicate with users about license status
 
 ---
+## 🎯 Overview
 
+Managing M365 Copilot licenses across large organizations can be complex and time-consuming. Clara solves this by providing:
+
+- **Automated License Monitoring**: Real-time tracking of license usage and identification of inactive users
+- **Intelligent Waitlist Management**: Streamlined process for managing license requests and approvals
+- **Smart Reassignment Workflows**: Automated redistribution of unused licenses to waiting users
+- **Proactive Communication**: Automated notifications to users about license status and usage optimization
+
+![](images/clara_overview.png)
+
+---
 ## 📚 Documentation & Support
 
 All setup guides, usage instructions, and troubleshooting are now in our Wiki and Discussions.
@@ -69,3 +80,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 **⭐ If Clara helps optimize your M365 Copilot license management, please star this repository!**
 
 Made with ❤️ for enterprise IT teams worldwide.
+
+
+
+
