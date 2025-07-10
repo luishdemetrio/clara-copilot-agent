@@ -6,7 +6,7 @@
 
 **Clara** is an intelligent AI agent built on Microsoft Copilot Studio that revolutionizes M365 Copilot license management for enterprises. It automates license monitoring, optimizes allocation, and streamlines user communication to ensure maximum ROI on your M365 Copilot investment.
 
-![](images/Clara.png)
+![](images/Clara_smaller.png)
 
 ---
 
