@@ -8,53 +8,26 @@
 
 ![](images/Clara.png)
 
-| [Documentation](https://github.com/luishdemetrio/clara-copilot-agent) |  [1. Azure Application Registration guide ](https://github.com/luishdemetrio/clara-copilot-agent/wiki/1.-Azure-Application-Registration-guide)  | [2. Azure REST API](https://github.com/luishdemetrio/clara-copilot-agent/wiki/2.-Azure-REST-API) |[3. SharePoint M365 Copilot Wait List](https://github.com/luishdemetrio/clara-copilot-agent/wiki/3.-Create-the-Required-SharePoint-Lists) |[4. Import CLARA to Copilot Studio](https://github.com/luishdemetrio/clara-copilot-agent/wiki/4.-Importing-CLARA-Agent-into-Copilot-Studio) | [(Opcional) Local Deployment guide ](https://github.com/luishdemetrio/clara-copilot-agent/wiki/Local-Deployment)
-| ---- | ---- | ---- |  ---- | ---- | ---- |  
+---
 
-## 🎯 Overview
+## 🚀 What is Clara?
 
-Managing M365 Copilot licenses across large organizations can be complex and time-consuming. Clara solves this by providing:
+Clara helps IT teams:
+- Monitor and analyze Copilot license usage
+- Manage waitlists and automate license assignments
+- Communicate with users about license status
 
-- **Automated License Monitoring**: Real-time tracking of license usage and identification of inactive users
-- **Intelligent Waitlist Management**: Streamlined process for managing license requests and approvals
-- **Smart Reassignment Workflows**: Automated redistribution of unused licenses to waiting users
-- **Proactive Communication**: Automated notifications to users about license status and usage optimization
+---
 
-![](images/clara_overview.png)
+## 📚 Documentation & Support
 
-## ✨ Key Features
+All setup guides, usage instructions, and troubleshooting are now in our Wiki and Discussions.
 
-### 🔍 **Usage Analytics & Reporting**
-- Comprehensive M365 Copilot usage analysis across all applications (Teams, Outlook, Word, Copilot Chat)
-- Identification of inactive and low-usage license holders
-- Customizable usage thresholds and reporting periods
+- **Getting Started:** See the [Wiki](https://github.com/luishdemetrio/clara-copilot-agent/wiki)
+- **Ask Questions:** Use [Discussions](https://github.com/luishdemetrio/clara-copilot-agent/discussions)
+- **Report Issues:** GitHub [Issues](https://github.com/luishdemetrio/clara-copilot-agent/issues)
 
-### 📋 **Waitlist Management**
-- Integration with SharePoint Lists for centralized waitlist tracking
-- Automated status updates and user notifications
-- Priority-based license assignment based on request dates
-- Comprehensive audit trails for compliance
-
-### 🔄 **License Optimization**
-- **Individual Reassignment**: Move licenses between specific users
-- **Bulk Operations**: Reassign multiple unused licenses to waitlist users
-- **New Assignments**: Streamlined process for assigning licenses to new users
-- **Safety Controls**: Mandatory confirmation before any license changes
-
-### 📧 **Automated Communications**
-- Proactive notifications to low-usage license holders
-- Welcome messages for new license recipients with usage guidance
-- Status updates for waitlist users
-- Integration with Outlook Power Automate connector
-
-## Prerequisites
-
-- Microsoft 365 E3/E5 licenses with Copilot
-- At least 50 Copilot licenses assigned in your tenant to enable telemetry and usage reporting ([Connect to the Microsoft Copilot Dashboard for Microsoft 365 customers](https://learn.microsoft.com/viva/insights/org-team-insights/copilot-dashboard))
-- Microsoft Copilot Studio access
-- SharePoint Online
-- Power Automate Premium
-- Azure subscription for API hosting
+---
 
 
 ## 🏗 Architecture
@@ -76,112 +49,14 @@ graph TB
     L --> J[Automated Communications]
 ```
 
-### Components
-
-1. **Clara Agent (Copilot Studio)**
-   - Natural language interface for IT administrators
-   - Intelligent conversation flows with safety confirmations
-   - Integration orchestration and workflow management
-
-2. **.NET REST APIs**
-   - M365 Copilot license management endpoints
-   - Usage data retrieval and processing
-   - License assignment/removal operations
-
-3. **SharePoint Integration**
-   - Centralized waitlist storage and management
-   - User request tracking and status updates
-   - Audit trail maintenance
-
-4. **Power Automate Connectors**
-   - Automated email notifications
-   - Workflow triggers and data synchronization
-
-
-## 💡 Usage Examples
-
-### Basic Commands
-
-```
-🔍 Monitor License Usage
-"Show me all users who haven't used Copilot in the last 30 days"
-
-🔄 Reassign Licenses
-"Reassign license from john.doe@company.com to jane.smith@company.com"
-
-📋 Manage Waitlist
-"Assign a Copilot license to the next person on the waitlist"
-
-📊 Bulk Operations
-"Reassign unused licenses to waitlist users"
-```
-
-
-## 📁 Repository Structure
-
-```
-clara-copilot-agent/
-├── src/
-│   ├── LanceAPI/                 # .NET REST API source code
-│   │   ├── Controllers/
-│   │   ├── Models/
-│   │   ├── Services/
-│   │   └── appsettings.json
-│   └── CopilotStudio/           # Copilot Studio assets
-│       ├── Solution/
-│       └── Topics/
-├── templates/
-│   ├── SharePoint/              # SharePoint list templates
-│   └── PowerAutomate/           # Power Automate flow templates
-├── docs/
-│   ├── LAB.md                   # Step-by-step lab guide
-│   ├── API-Documentation.md     # API reference
-│   └── screenshots/
-└── README.md
-```
-
-
-### Required Permissions
-
-- Microsoft Graph API permissions for license management
-- SharePoint site collection access
-- Power Automate connector permissions
-
-## 🧪 Lab Guide
-
-Want to build LANCE from scratch? Check out our comprehensive [Lab Guide](docs/LAB.md) that walks you through:
-
-- Setting up the development environment
-- Creating the .NET REST APIs
-- Building the Copilot Studio agent
-- Configuring SharePoint integration
-- Testing and deployment
-
-## 📚 Documentation
-
-- [API Reference](docs/API-Documentation.md)
-- [Lab Guide - Build Your Own LANCE](docs/LAB.md)
-- [Troubleshooting Guide](docs/Troubleshooting.md)
-- [Best Practices](docs/Best-Practices.md)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
-
-- Code standards and conventions
-- Pull request process
-- Issue reporting
-- Feature requests
+We welcome contributions!
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/license/MIT) file for details.
-
-## 🙋‍♀️ Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/lance-copilot-agent/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/luishdemetrio/clara-copilot-agent/discussions)
-- **Documentation**: [Wiki](https://github.com/luishdemetrio/clara-copilot-agent/wiki)
 
 ## 🌟 Acknowledgments
 
