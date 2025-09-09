@@ -32,12 +32,28 @@ public class CopilotController : ControllerBase
         return Ok(counts);       
     }
 
-    // List users with Copilot license
+
+    /// <summary>
+    /// Retrieves the full usage report from the M365 Copilot Usage Report.
+    /// This includes user activity across Copilot-enabled apps and is used to identify inactive or low-usage users.
+    /// </summary>
+    /// <param name="days">
+    /// The number of days to look back from today to identify users who have not accessed Copilot.
+    /// For example, days=30 will return users inactive for the past 30 days.
+    /// </param>
+    /// <param name="topUsers">
+    /// The number of users to return in the report, based on the filter criteria (e.g., least active).
+    /// For example, topUsers=10 will return the top 10 inactive users.
+    /// </param>
+    /// <returns>
+    /// A list of users matching the specified inactivity and filter criteria.
+    /// </returns>
+
     [HttpGet("usage-report")]
     [Authorize]
-    public async Task<IActionResult> GetM365CopilotUsageReport(int? days = null)
+    public async Task<IActionResult> GetM365CopilotUsageReport(int? days = null, int? topUsers = null)
     {
-        var inactive = await _usageService.GetInactiveUsersAsync(days);
+        var inactive = await _usageService.GetInactiveUsersAsync(days, topUsers);
         return Ok(inactive);
     }
 
