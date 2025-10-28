@@ -28,7 +28,7 @@ public class CopilotUsageService : ICopilotUsageService
         _m365CopilotDashboardUrl = config["M365CopilotDashboardUrl"]!;
     }
 
-    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync(int? days = null)
+    public async Task<IEnumerable<M365CopilotUsageReport>> GetInactiveUsersAsync(int? days = null, int? topUsers = null)
     {
          // Fetch users with Copilot licenses
         var users = await _graphClient.Users
@@ -82,22 +82,28 @@ public class CopilotUsageService : ICopilotUsageService
 
 
 
-        // Optionally filter by days
+        // Order by LastActivityDate descending (nulls last)
+        var ordered = joined.OrderByDescending(report => report.LastActivityDate ?? DateTime.MinValue);
+
+        // Apply filtering and limiting in a single chain
+        var result = ordered.AsEnumerable(); // Convert to IEnumerable early to avoid type issues
+
         if (days.HasValue)
         {
-            var filteredList = joined
-                .Where(report =>
-                            report.LastActivityDate == null ||
-                            (
-                                report.LastActivityDate is DateTime lastActivity &&
-                                (DateTime.UtcNow.Subtract(lastActivity)).TotalDays >= days.Value
-                            )
-                       );
-
-            return filteredList;
+            result = result.Where(report =>
+                report.LastActivityDate == null ||
+                (
+                    report.LastActivityDate is DateTime lastActivity &&
+                    (DateTime.UtcNow.Subtract(lastActivity)).TotalDays >= days.Value
+                ));
         }
-    
-        return joined;
+
+        if (topUsers.HasValue && topUsers.Value > 0)
+        {
+            result = result.Take(topUsers.Value);
+        }
+
+        return result;
     }
 
   

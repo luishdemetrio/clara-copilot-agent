@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\classes\\copilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:classes\\copilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:controllers\\copilotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\classes\\copilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:classes\\copilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\interfaces\\icopilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:interfaces\\icopilotusageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|c:\\github\\clara-copilot-agent\\src\\clara.api\\clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{509A1F3F-6977-C2B4-9BD1-15E913F17D8A}|Clara.API.csproj|solutionrelative:clara.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,7 +54,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "ICopilotUsageService.cs",
+              "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Interfaces\\ICopilotUsageService.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICopilotUsageService.cs",
+              "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Interfaces\\ICopilotUsageService.cs",
+              "RelativeToolTip": "Interfaces\\ICopilotUsageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T20:11:26.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Clara.API.csproj",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Clara.API.csproj",
               "RelativeDocumentMoniker": "Clara.API.csproj",
@@ -58,37 +74,35 @@
               "RelativeToolTip": "Clara.API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-06-26T11:27:42.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T11:27:42.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
               "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\appsettings.Development.json",
               "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-26T11:17:32.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-26T11:17:32.815Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "CopilotUsageService.cs",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Classes\\CopilotUsageService.cs",
               "RelativeDocumentMoniker": "Classes\\CopilotUsageService.cs",
               "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Classes\\CopilotUsageService.cs",
               "RelativeToolTip": "Classes\\CopilotUsageService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACUAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-26T11:13:59.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -100,15 +114,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "CopilotController.cs",
               "DocumentMoniker": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Controllers\\CopilotController.cs",
               "RelativeDocumentMoniker": "Controllers\\CopilotController.cs",
               "ToolTip": "C:\\github\\clara-copilot-agent\\src\\Clara.API\\Controllers\\CopilotController.cs",
               "RelativeToolTip": "Controllers\\CopilotController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-26T11:13:29.736Z"
+              "WhenOpened": "2025-06-26T11:13:29.736Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",

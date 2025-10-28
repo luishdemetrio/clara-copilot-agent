@@ -45,7 +45,7 @@ All setup guides, usage instructions, and troubleshooting are now in our Wiki an
 
 ```mermaid
 graph TB
-    A[Clara Agent] --> B[.NET REST APIs]
+    A[Clara Agent] --> B[Microsoft Graph APIs]
     A --> C[SharePoint Lists]
     A --> D[Power Automate]
     
