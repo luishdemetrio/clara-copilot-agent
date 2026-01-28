@@ -1,312 +1,305 @@
-# Exercise 1: Import CLARA to Copilot Studio
+# Exercise 1: Prepare SharePoint Infrastructure
 
-**Estimated time:** 10 minutes
+**Estimated time:** 8 minutes
 
 ## Objective
 
-Import the CLARA solution package into Microsoft Copilot Studio and verify all components are created successfully.
+Import the M365 Copilot License Waitlist template into SharePoint and configure an optimized view for Clara's operations. This list serves as Clara's operational memory for tracking license requests and assignments.
+
+---
+
+## What You'll Learn
+
+Clara needs a place to store and track license requests in real-time. SharePoint Lists provide the perfect balance of:
+- **Fast read/write operations** for conversational workflows
+- **Built-in versioning** for audit trails
+- **Native Microsoft 365 integration** with Power Automate and Copilot Studio
+- **Familiar interface** for IT admins to review and manage manually when needed
+
+Instead of creating columns manually (which takes time), you'll import a pre-configured template that includes all the columns Clara needs with proper data types and settings.
 
 ---
 
 ## What You'll Do
 
-- Navigate to Copilot Studio
-- Import the CLARA solution package
-- Verify the agent, custom connector, and Azure app creation
-- Prepare configuration values for next exercises
+- Download the SharePoint List template (CSV)
+- Import the template into your SharePoint site
+- Create an optimized view to reduce payload size
+
+---
+
+## Before You Begin
+
+You'll need:
+- ✅ Access to a SharePoint site (Site Owner or Member permissions)
+- ✅ Ability to create lists and manage views
+- ✅ The SharePoint site URL (you'll use this in Exercise 4)
+
+> 💡 **Recommended:** Use a dedicated site for Clara (e.g., "IT Automation" or "License Management"), or use your existing IT/Admin SharePoint site.
 
 ---
 
 ## Tasks
 
-### 🧱 Step 1: Access Copilot Studio
+### 🧱 Step 1: Download the SharePoint List Template
 
-1. In your Skillable environment, open **Microsoft Edge**
+#### Why Import from Template?
 
-2. Navigate to: https://copilotstudio.microsoft.com
+Creating 8 columns manually with specific data types, validation rules, and settings takes 10-15 minutes. Importing from a CSV template does this in 2 minutes while ensuring consistency and reducing errors.
 
-3. Sign in with the credentials provided in your Skillable environment
+**Steps:**
 
-✅ **Validation:** Copilot Studio home page loads with Agents tab visible.
+1. Open a new browser tab
+
+2. Navigate to the Clara GitHub repository:
+   
+   https://github.com/luishdemetrio/clara-copilot-agent/labs
+   
+3. Locate the **SharePoint Templates** folder
+
+4. Download **M365-Copilot-Waitlist-Template.csv**
+
+   ![](images/sp01.png)
+
+   > 💡 **What's in the template?** Pre-configured column definitions and one sample row to establish data types
+
+5. Save the file to your **Downloads** folder
+
+6. Keep this browser tab open—you'll return to GitHub for additional files later
+
+✅ **Validation:** CSV template file downloaded to your computer
+
+**Troubleshooting:**
+- **Can't access GitHub?** Ask the instructor for a direct download link
+- **File downloads as .txt?** Right-click → Save Link As → ensure .csv extension
+- **Corporate firewall blocking GitHub?** The instructor has a backup copy available
 
 ---
 
-### 🧱 Step 2: Import the Solution
+### 🧱 Step 2: Navigate to Your SharePoint Site
 
-1. Access Solutions:
+**Steps:**
 
-   - On the left-hand side menu, click on the ellipsis (**...**) and then select Solutions.
+1. Open a new browser tab (or switch to an existing SharePoint tab)
 
-   ![](images/is01a.png)
-  
-2. In the top menu, click **Import solution**.   
+2. Navigate to your SharePoint site
+
+   Example: `https://m365cpi69113837.sharepoint.com/sites/Clara`
    
+   > 💡 **Tip:** If you don't have a dedicated site, you can use any existing site where you have permissions to create lists
 
-3. When prompted:
-   - Click **Browse** or **Choose file**
-   - Navigate to **Desktop**
-   - Select `Clara_Copilot_Agent.zip`
-   - Click **Open**
+3. Verify you're on the site homepage
+
+   You should see the site name in the top-left corner
    
-   ![](images/import01.png)
+   ![](images/sp01a.png)
 
-4. Click **Import** to start the process
-
-   ![](images/import02.png)
-   
-   > ℹ️ Please not that the agent version can be different.
-   
-   - Review the details, then click **Next** again.
-   
-   ![](images/import03.png)
-   
-   - Click **Next** to proceed.
-
-   ![](images/import03a.png)
-   
-5. Proceed with the Environment Variable Values
-
-   - Fill up the following fields:
-   
-     - **Use Mock Data:** Allows the agent to use mock telemetry data during project import for testing purposes when the customer environment does not have telemetry enabled. Leave this value empty if you do not want to use mock data. To enable mock data, provide the tenant name domain (e.g., M365CPI69113837.onmicrosoft.com). After testing, you can clear the value to disable mock mode and use real data.
-   
-     - **SharePoint Waitlist Site URL**: URL of the SharePoint site hosting the waitlist for users pending license allocation.
-
-     - **SharePoint Email Images Folder URL**: URL of the SharePoint folder containing images used in email notifications sent to users.
-
-     - **AZURE_ENTRA_COPILOT_GROUP_ID**: Security group used to manage and assign Microsoft 365 Copilot licenses to eligible users. Membership in this group grants access to Copilot features across Microsoft 365 applications.
-     
-     > ℹ️
-     >
-     >Clara relies on three key resources to operate effectively:
-     > - **SharePoint List** – Stores and manages users waiting for Copilot licenses.
-     > - **SharePoint Folder** – Contains the images used in email communications.
-     > - **Microsoft Entra Security Group** – Controls license assignments and access.
-     >
-     > Your Skillable environment already includes these resources configured.
-
-  - Click **Import** to begin.
-  
-    ![](images/import04aa.png)
-
-6. Wait for import to complete
-
-   ⏱️ **Expected time:** 2-4 minutes
-
-   ![](images/import05.png)
-   
-✅ **Validation:** 
-   - You may see a warning after importing the solution. You can ignore it for now.
-   - The agent will appear in your solutions list.
-
-     ![](images/import05a.png)
-   
-
----
-
-### 🧱 Step 3: Verify CLARA Agent in Copilot Studio
-
-#### Why This Verification Matters:
-
-After importing the agent package, the next critical step is confirming that Clara appeared correctly in your Copilot Studio environment. This verification ensures the import completed successfully and that all agent components—topics, configurations, and the basic structure—are intact. Think of this as a "health check" before we move forward with configuration. **You're not testing functionality yet** (Clara won't work at this stage), but you are confirming that the foundation is in place and ready for the setup steps ahead.
-
-1. Switch back to: https://copilotstudio.microsoft.com
-
-2. After import completes, **CLARA** should appear in your Agents list
-
-   ![](images/import07.png)
-
-3. Click on **CLARA** to open the agent
-
-4. Verify you can see:
-   - Agent name: CLARA
-   - Description visible
-   - Triggers (Clara Copilot Dashboard Daily Sync)
-   - Test chat panel available
-
-   ![](images/import07a.png)
-
-5. Click on the **Knowledge** tab to verify that **Clara M365 Copilot Dashboard** table for Dataverse is listed..
-
-   ![](images/import07c.png)
-   
-6. Click on the **Tools** tab and check if the following tools (Flows and Connectors) are available:
-
-   - Clara - Flow to Assign Copilot License via Group
-   - Clara - Flow to get real-time M365 Copilot Dashboard Report
-   - Clara - Flow to Remove Copilot License via Group
-   - M365 Copilot License Overview
-   - Get Copilot Waitlist Users
-   
-   
-   ![](images/import07d.png)
-
-7. Finally, check if you have the following topics:
-
-   - Send a welcome email to Copilot licensed user
-   - Send Notification Email to Inactive Copilot Users
-   - Update the Waitlist Status to Approved
-
-   ![](images/import07d.png)
-   
-✅ **Validation:** CLARA agent opens in Copilot Studio 
-
->💡 **Note:**
->
->Clara is not expected to work at this stage. This is by design —we will complete Clara’s configuration first.
-
-> ⚠️ **Troubleshooting**:
->
->If any components are missing, verify that the import completed without errors. You may need to re-import the solution package or check that your environment has the necessary licenses and permissions.
----
-
-### 🧱 Step 4: Verify Azure App Registration (Auto-Created)
-
-#### Why Azure App Registration Matters:
-When you imported Clara's solution package, **Copilot Studio automatically created an Azure App Registration** behind the scenes. This app registration is Clara's identity in your Microsoft 365 tenant—think of it as Clara's security badge that allows her to authenticate and interact with protected services like Microsoft Graph API, SharePoint, and Outlook.
-
-Custom Agents like Clara need this identity because they perform actions on behalf of users: assigning licenses, reading usage data, sending emails, and managing waitlists. Each of these operations requires secure authentication using OAuth 2.0. The Azure App Registration provides the credentials (Client ID and Tenant ID) that Clara uses to prove her identity when making these API calls.
-
-While the app registration is created automatically during import, you'll still need to configure its permissions and client secret manually in the next steps. This separation is intentional—it ensures that sensitive credentials aren't embedded in the solution package and that you maintain full control over what Clara can access in your environment.
-
-Steps:  
-
-1. Open a **new browser tab**
-
-2. Navigate to: https://portal.azure.com
-
-3. Sign in with Skillable credentials (if prompted)
-
-4. Search for and click: **App Registrations**
-
-  ![](images/ap02.png)
-
-
-5. Click **All applications** tab
-
-6. Search for: **CLARA**
-
-7. Click on the CLARA application
-
-   ![](images/az01a.png)
-
-8. On the Overview page, copy these values to **Notepad**:
-
-   ![](images/az01b.png)
+4. Copy the SharePoint site URL to Notepad—you'll need it in Exercise 4
 
    ```
-   Application (client) ID: ____________________
-   Directory (tenant) ID: ______________________
+   SharePoint Configuration
+   ========================
+   Site URL: _______________________________________
    ```
 
-✅ **Validation:** CLARA app visible in Azure with Client ID and Tenant ID saved.
-
-💡 **Tip:** Keep Notepad open—you'll add more values as you progress through the configuration steps.
+✅ **Validation:** SharePoint site is open and URL is saved
 
 ---
 
-### 🧱 Step 5: Verify Custom Connector
+### 🧱 Step 3: Import the List from CSV
 
-#### Why the Custom Connector Matters:
-Along with the agent and Azure App Registration, the solution package also imported a Custom Connector called Clara Graph APIs. This connector is Clara's bridge to Microsoft Graph API—the unified API endpoint that provides programmatic access to Microsoft 365 services and data.
+#### Understanding CSV Import
 
-While Copilot Studio has built-in connectors for many common operations, Clara needs specialized access to Graph API endpoints that aren't covered by standard connectors—specifically, license assignment operations, usage analytics from the M365 Copilot Dashboard API, and security group membership management. The custom connector packages these specific Graph API calls into reusable actions that Clara's Power Automate flows can invoke.
+SharePoint can create lists from CSV files, automatically detecting column types from the data. This is faster than manual creation and ensures consistency across deployments.
 
-Think of it this way: the Azure App Registration (from Step 4) is Clara's identity badge, and the Custom Connector is the specialized toolkit she uses to perform her job. Together, they enable Clara to read license inventory, assign and remove licenses, and retrieve usage data—all through secure, authenticated API calls.
+**Steps:**
 
-The connector was imported automatically, but you'll need configure the connection details in Exercise 3 by linking it to the Azure App Registration credentials you just verified.
+1. From your SharePoint site, click **+ New** from the top navigation
 
-Steps:
+2. Select **List** from the dropdown menu.
 
+   ![](images/sl01.png)
 
-1. Open a **new browser tab**
+3. In the "Create a list" dialog, select **From CSV**
 
-2. Navigate to: https://make.powerautomate.com
+   ![](images/sl01a.png)
 
-3. Sign in if prompted
+4. Click **Upload file**
 
-4. In the left-hand menu, select Custom Connectors.
+   ![](images/sl02a.png)
 
-   - If not pinned, click More → Discover all → Custom Connectors.
+5. Browse to your **Downloads** folder and select **M365-Copilot-Waitlist-Template.csv**
+
+6. Click **Open**
+
+   > ⏱️ **Wait time:** 3-5 seconds while SharePoint analyzes the file
+
+7. SharePoint displays a preview of the columns it detected:
+
+   You should see:
+   - Title
+   - User Waiting License
+   - Request Date
+   - Status
+   - Priority
+   - Business Justification
+   - Assigned Date
+   - Assigned By
+   - Notes
+
+   > 💡 **Review the preview:** SharePoint attempts to detect column types automatically. We'll verify these in the next step.
    
-   ![](images/import15a.png) 
 
-5. Locate **Clara Graph APIs** in the list.
+8. Click **Next**
 
-   ![](images/import15a1.png) 
+   ![](images/sl03.png)
 
-✅ **Validation:** "Clara Graph APIs" connector visible in list.
+9. Configure the list:
+   - **Name:** `M365 Copilot License Waitlist`
+   
 
-💡 **Note:** Status shows "Not connected"—this is expected. You'll configure it in Exercise 3.
+10. Click **Create**
+
+   > ⏱️ **Wait time:** 5-10 seconds for SharePoint to create the list and import data
+   
+   ![](images/sl04.png)
+
+✅ **Validation:** List is created and opens with columns visible
+
+   ![](images/sl05.png)
+
+**Troubleshooting:**
+- **Upload fails?** Check file isn't open in Excel—close Excel and retry
+- **"Unable to detect columns"?** Ensure CSV is properly formatted—download again from GitHub
+- **Import hangs?** Refresh the page and try again
+- **Character encoding errors?** The CSV should be UTF-8 encoded—if issues persist, use the instructor's backup file
+
+---
+
+
+### 🧱 Step 4: Create Optimized View for Clara
+
+#### Why Views Matter for Performance
+
+Without a custom view, Clara retrieves **all columns** including system metadata, resulting in large JSON payloads that consume her token budget. In testing:
+- **Without view:** 140 lines of JSON for 2 users
+- **With optimized view:** 72 lines of JSON for 2 users
+
+This 50% reduction prevents token limit errors and improves response speed.
+
+**What We're Creating:**
+
+An "Active Waitlist" view that:
+- Shows only users with Status = "Pending"
+- Sorts by Priority (High first) then Request Date (oldest first)
+- Includes only essential columns Clara needs
+
+**Steps:**
+
+1. Click the **+ Add view** next to **All Items** (current view name) at the top of the list
+
+   ![](images/sl06.png)
+
+2. In the "Create View" dialog
+   - **View name:** `Active Waitlist`
+   - **Show as:** List (pre-selected)
+   - **Make this the default view:** No (leave unchecked)
+
+3. Click **Create**
+
+   ![](images/sl07.png)
+   
+   Once created, you'll see "Active Waitlist" appear in the view dropdown
+
+4. Now configure the view by clicking the view dropdown → **Edit current view**
+
+   ![](images/sl08.png)
+   
+5. Under the Columns section, check only these columns: 
+   - ✅ User Waiting License
+   - ✅ Request Date
+   - ✅ Priority
+   - ✅ Business Justification (if you need it in responses)
+   
+   > 💡 **Why only these three?** Clara retrieves full item data in her flows; the view is just for efficient filtering
+
+
+   ![](images/sl09.png)
+
+6. Scroll to **Filter** section
+
+7. Configure filter:
+   - **Show items only when the following is true:**
+   - Select: **Status** → **is equal to** → **Pending**
+
+   > 💡 **Why filter by Pending?** Clara primarily works with active requests, not historical ones
+
+
+8. Click **OK** to save the view
+ 
+    ![](images/sl10a.png)
+
+
+✅ **Validation:** "Active Waitlist" view is created and ready
+
+---
+
+### 🧱 Step 5: Record Configuration Details
+
+Save these details for Exercise 4 configuration:
+
+**Steps:**
+
+1. Update your Notepad with the following information:
+
+   ```
+   SharePoint Configuration
+   ========================
+   Site URL: _______________________________________
+   List Name: M365 Copilot License Waitlist
+   View Name: Active Waitlist
+   ```
+
+2. To get the **List URL** (optional, but helpful):
+   - While viewing the list, copy the URL from your browser
+   - Example: `https://yourtenant.sharepoint.com/sites/SiteName/Lists/M365CopilotLicenseWaitlist`
+   - Add to your notes:
+     ```
+     List URL: _______________________________________
+     ```
+
+3. Keep this information—you'll need it when configuring Clara's SharePoint connector in Exercise 4
+
+✅ **Validation:** All SharePoint configuration details saved in Notepad
 
 ---
 
 ## Summary
 
-You've successfully:
+You've successfully created Clara's operational infrastructure in just 8 minutes:
 
-- ✅ Imported CLARA solution to Copilot Studio
-- ✅ Verified CLARA agent is visible and accessible
-- ✅ Confirmed Azure app registration was auto-created
-- ✅ Verified custom connector import
-- ✅ Saved Client ID and Tenant ID
-
----
-
-## Configuration Tracker
-
-Save these values for upcoming exercises:
-
-```
-CLARA Configuration Values
-===========================
-Application (client) ID: ____________________
-Directory (tenant) ID: ______________________
-
-(More values will be added in Exercise 2)
-```
+- ✅ Imported SharePoint List template with all required columns
+- ✅ Configured validation rules for data integrity
+- ✅ Created optimized "Active Waitlist" view for performance
+- ✅ Saved configuration details for Exercise 4
 
 ---
 
-## Troubleshooting
+## What You Built
 
-**Issue:** Import fails with error
+**The M365 Copilot License Waitlist** is now ready to serve as Clara's real-time memory for:
+- Tracking license requests as they come in
+- Managing the queue with priority and FIFO fairness
+- Recording assignment decisions with full audit trails
+- Providing visibility for IT admins to review manually
 
-**Solutions:**
-- Verify you have admin permissions
-- Check solution file is not corrupted
-- Ensure correct environment selected
-- Try import again (transient errors can occur)
-
----
-
-**Issue:** Can't find CLARA app in Azure AD
-
-**Solutions:**
-- Wait 1-2 minutes for Azure AD sync
-- Refresh the App registrations page
-- Search in "All applications" tab
-- Verify correct tenant
+**The Active Waitlist view** optimizes Clara's performance by:
+- Reducing JSON payload size by ~50%
+- Filtering to show only actionable items (Status = Pending)
+- Sorting intelligently (Priority first, then Request Date)
+- Preventing token limit issues as your waitlist scales
 
 ---
 
-**Issue:** Custom connector not visible
+**Next:** [Exercise 1: Import CLARA](./01-exercise1.md)
 
-**Solutions:**
-- Verify same environment as Copilot Studio
-- Refresh Power Automate page
-- Check under Data > Custom connectors
-- If missing, import may have failed—retry
-
----
-
-## ⏱️ Time Check
-
-You should be approximately **10 minutes** into the lab.
-
-- ⏰ On track: Continue to Exercise 2
-- ⏰ Behind: Raise your hand for assistance
-
----
-
-**Next:** [Exercise 2: Configure Azure App Registration](./exercise2.md)
