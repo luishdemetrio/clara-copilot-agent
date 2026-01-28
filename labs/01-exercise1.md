@@ -57,15 +57,19 @@ Creating 8 columns manually with specific data types, validation rules, and sett
    
 3. Locate the **SharePoint Templates** folder
 
-4. Download **M365-Copilot-Waitlist-Template.csv**
+4. Click on **M365-Copilot-Waitlist-Template.csv**
 
-   ![](images/sp01.png)
+   ![](images/sl01a1.png)
+
+5. Download the file:
+
+   ![](images/sl01a2.png)
 
    > 💡 **What's in the template?** Pre-configured column definitions and one sample row to establish data types
 
-5. Save the file to your **Downloads** folder
+6. Save the file to your **Downloads** folder
 
-6. Keep this browser tab open—you'll return to GitHub for additional files later
+7. Keep this browser tab open—you'll return to GitHub for additional files later
 
 ✅ **Validation:** CSV template file downloaded to your computer
 
@@ -301,5 +305,5 @@ You've successfully created Clara's operational infrastructure in just 8 minutes
 
 ---
 
-**Next:** [Exercise 1: Import CLARA](./01-exercise1.md)
+**Next:** [Exercise 2: Create SharePoint Folder for Email Assets](./02-exercise2.md)
 
