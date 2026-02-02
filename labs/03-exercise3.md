@@ -1,312 +1,316 @@
-# Exercise 1: Import CLARA to Copilot Studio
-
-**Estimated time:** 10 minutes
+# Exercise 3: Create Microsoft Entra Security Group
 
 ## Objective
 
-Import the CLARA solution package into Microsoft Copilot Studio and verify all components are created successfully.
+Create a Microsoft Entra Security Group that Clara will use to manage M365 Copilot license assignments. This group is Clara's source of truth for license eligibility—adding a user to the group grants the license, removing them revokes it.
+
+---
+
+## What You'll Learn
+
+Clara doesn't assign licenses directly to individual users. Instead, she manages licenses through **group-based licensing**—a Microsoft 365 best practice that provides:
+
+**Why Group-Based Licensing?**
+- ✅ **Centralized control:** One place to manage all license assignments
+- ✅ **Automatic provisioning:** Add user to group = license automatically assigned
+- ✅ **Audit trail:** Clear record of who added/removed users from the group
+- ✅ **Scale-friendly:** Manage hundreds of licenses as easily as one
+- ✅ **Governance-ready:** Integrates with access reviews and compliance policies
+
+Clara's automation adds/removes users from this security group, and Microsoft 365 handles the actual license assignment automatically.
 
 ---
 
 ## What You'll Do
 
-- Navigate to Copilot Studio
-- Import the CLARA solution package
-- Verify the agent, custom connector, and Azure app creation
-- Prepare configuration values for next exercises
+- Create a Microsoft Entra Security Group
+- Assign M365 Copilot licenses to the group
+- Record the Group Object ID for Clara's configuration
+- Verify group-based licensing is working
+
+---
+
+## Before You Begin
+
+You'll need:
+- ✅ **Global Administrator** or **Groups Administrator** role in Microsoft Entra
+- ✅ **License Administrator** role in Microsoft 365 Admin Center
+- ✅ At least one available M365 Copilot license in your tenant
+
+> ⚠️ **Important:** If you don't have these permissions, ask your instructor or proctor for assistance. Group creation and license assignment require elevated privileges.
 
 ---
 
 ## Tasks
 
-### 🧱 Step 1: Access Copilot Studio
+### 🧱 Step 1: Open Microsoft Entra Admin Center
 
-1. In your Skillable environment, open **Microsoft Edge**
+#### Understanding Microsoft Entra (formerly Azure AD)
 
-2. Navigate to: https://copilotstudio.microsoft.com
+Microsoft Entra ID is your organization's identity and access management system. Security Groups created here can be used across all Microsoft 365 services, including license management.
 
-3. Sign in with the credentials provided in your Skillable environment
+**Steps:**
 
-✅ **Validation:** Copilot Studio home page loads with Agents tab visible.
+1. Open a new browser tab
+
+2. Navigate to: **https://entra.microsoft.com**
+
+3. Sign in with your admin credentials (if prompted)
+
+   > 💡 **Tip:** Use the same credentials you used for SharePoint and other exercises
+
+4. The Microsoft Entra Admin Center opens
+
+   ![](images/ng00.png)
+
+5. In the left navigation, expand **Entra ID** (if collapsed)
+
+6. Click **Groups** → **All groups**
+
+   ![](images/ng01a.png)
+
+✅ **Validation:** "All groups" page is displayed showing existing groups in your tenant
+
+**Troubleshooting:**
+- **Access denied?** You may not have Groups Administrator permissions—contact your proctor
+- **Can't find Groups?** Use the search bar at the top: type "Groups"
+- **Page won't load?** Refresh and try again, or use portal.azure.com → Azure Active Directory → Groups
 
 ---
 
-### 🧱 Step 2: Import the Solution
+### 🧱 Step 2: Create Security Group
 
-1. Access Solutions:
+#### Why Security Group (Not Microsoft 365 Group)?
 
-   - On the left-hand side menu, click on the ellipsis (**...**) and then select Solutions.
+Microsoft offers several group types, but Clara requires a **Security Group** because:
+- Supports group-based licensing for M365 Copilot
+- Provides direct membership management (no email/collaboration features needed)
+- Integrates cleanly with Graph API for automated user management
 
-   ![](images/is01a.png)
+**Steps:**
+
+1. Click **+ New group** at the top of the page
+
+   ![](images/ng01.png)
+
+2. Configure the group settings:
+
+   **Group type:** **Security**
+   
+   > 🚨 **Critical:** Must be Security, not Microsoft 365 Group
+
+   **Group name:** `M365 Copilot Licensed Users`
+   
+   > 💡 **Tip:** Use a clear, descriptive name. You could also use "Copilot Users" or "Clara Managed Licenses"
+
+   **Group description:** `Security group for managing Microsoft 365 Copilot license assignments via Clara agent`
+
+   **Microsoft Entra roles can be assigned to the group:** **No**
+   
+   > 💡 **Why No?** This is for license management, not role assignments
+
+   **Membership type:** **Assigned**
+   
+   > 💡 **Why Assigned?** Clara will explicitly add/remove members. Dynamic membership rules aren't needed.
+
+   **Owners:** Leave empty (or add yourself if desired)
+
+   **Members:** Leave empty for now
+   
+   > 💡 **Why empty?** Clara will manage membership. We'll add a test user later to verify it works.
+
+   ![](images/ng02.png)
+
+3. Click **Create**
+
+   > ⏱️ **Wait time:** 3-5 seconds for the group to be created
+
+4. A notification appears: "Successfully created group"
+
+✅ **Validation:** New security group appears in the All groups list
+
+**Troubleshooting:**
+- **Create button grayed out?** Check that all required fields are filled
+- **"Insufficient privileges" error?** You need Groups Administrator or Global Administrator role
+- **Group name already exists?** Use a different name like "M365 Copilot Users - Clara"
+
+---
+
+### 🧱 Step 3: Get Group Object ID
+
+#### Why Clara Needs the Object ID
+
+The **Object ID** is the unique identifier for this group in Microsoft Entra. Clara's Power Automate flows use this ID to add/remove users via Microsoft Graph API. Without it, Clara can't manage group membership.
+
+**Steps:**
+
+1. In the All groups list, click on your newly created group name: **M365 Copilot Licensed Users**
+
+
+2. Locate the **Object ID**
+
   
-2. In the top menu, click **Import solution**.   
-   
+3. **Copy** the Object ID
 
-3. When prompted:
-   - Click **Browse** or **Choose file**
-   - Navigate to **Desktop**
-   - Select `Clara_Copilot_Agent.zip`
-   - Click **Open**
-   
-   ![](images/import01.png)
+![](images/ng02a.png)
 
-4. Click **Import** to start the process
-
-   ![](images/import02.png)
-   
-   > ℹ️ Please not that the agent version can be different.
-   
-   - Review the details, then click **Next** again.
-   
-   ![](images/import03.png)
-   
-   - Click **Next** to proceed.
-
-   ![](images/import03a.png)
-   
-5. Proceed with the Environment Variable Values
-
-   - Fill up the following fields:
-   
-     - **Use Mock Data:** Allows the agent to use mock telemetry data during project import for testing purposes when the customer environment does not have telemetry enabled. Leave this value empty if you do not want to use mock data. To enable mock data, provide the tenant name domain (e.g., M365CPI69113837.onmicrosoft.com). After testing, you can clear the value to disable mock mode and use real data.
-   
-     - **SharePoint Waitlist Site URL**: URL of the SharePoint site hosting the waitlist for users pending license allocation.
-
-     - **SharePoint Email Images Folder URL**: URL of the SharePoint folder containing images used in email notifications sent to users.
-
-     - **AZURE_ENTRA_COPILOT_GROUP_ID**: Security group used to manage and assign Microsoft 365 Copilot licenses to eligible users. Membership in this group grants access to Copilot features across Microsoft 365 applications.
-     
-     > ℹ️
-     >
-     >Clara relies on three key resources to operate effectively:
-     > - **SharePoint List** – Stores and manages users waiting for Copilot licenses.
-     > - **SharePoint Folder** – Contains the images used in email communications.
-     > - **Microsoft Entra Security Group** – Controls license assignments and access.
-     >
-     > Your Skillable environment already includes these resources configured.
-
-  - Click **Import** to begin.
-  
-    ![](images/import04aa.png)
-
-6. Wait for import to complete
-
-   ⏱️ **Expected time:** 2-4 minutes
-
-   ![](images/import05.png)
-   
-✅ **Validation:** 
-   - You may see a warning after importing the solution. You can ignore it for now.
-   - The agent will appear in your solutions list.
-
-     ![](images/import05a.png)
-   
-
----
-
-### 🧱 Step 3: Verify CLARA Agent in Copilot Studio
-
-#### Why This Verification Matters:
-
-After importing the agent package, the next critical step is confirming that Clara appeared correctly in your Copilot Studio environment. This verification ensures the import completed successfully and that all agent components—topics, configurations, and the basic structure—are intact. Think of this as a "health check" before we move forward with configuration. **You're not testing functionality yet** (Clara won't work at this stage), but you are confirming that the foundation is in place and ready for the setup steps ahead.
-
-1. Switch back to: https://copilotstudio.microsoft.com
-
-2. After import completes, **CLARA** should appear in your Agents list
-
-   ![](images/import07.png)
-
-3. Click on **CLARA** to open the agent
-
-4. Verify you can see:
-   - Agent name: CLARA
-   - Description visible
-   - Triggers (Clara Copilot Dashboard Daily Sync)
-   - Test chat panel available
-
-   ![](images/import07a.png)
-
-5. Click on the **Knowledge** tab to verify that **Clara M365 Copilot Dashboard** table for Dataverse is listed..
-
-   ![](images/import07c.png)
-   
-6. Click on the **Tools** tab and check if the following tools (Flows and Connectors) are available:
-
-   - Clara - Flow to Assign Copilot License via Group
-   - Clara - Flow to get real-time M365 Copilot Dashboard Report
-   - Clara - Flow to Remove Copilot License via Group
-   - M365 Copilot License Overview
-   - Get Copilot Waitlist Users
-   
-   
-   ![](images/import07d.png)
-
-7. Finally, check if you have the following topics:
-
-   - Send a welcome email to Copilot licensed user
-   - Send Notification Email to Inactive Copilot Users
-   - Update the Waitlist Status to Approved
-
-   ![](images/import07d.png)
-   
-✅ **Validation:** CLARA agent opens in Copilot Studio 
-
->💡 **Note:**
->
->Clara is not expected to work at this stage. This is by design —we will complete Clara’s configuration first.
-
-> ⚠️ **Troubleshooting**:
->
->If any components are missing, verify that the import completed without errors. You may need to re-import the solution package or check that your environment has the necessary licenses and permissions.
----
-
-### 🧱 Step 4: Verify Azure App Registration (Auto-Created)
-
-#### Why Azure App Registration Matters:
-When you imported Clara's solution package, **Copilot Studio automatically created an Azure App Registration** behind the scenes. This app registration is Clara's identity in your Microsoft 365 tenant—think of it as Clara's security badge that allows her to authenticate and interact with protected services like Microsoft Graph API, SharePoint, and Outlook.
-
-Custom Agents like Clara need this identity because they perform actions on behalf of users: assigning licenses, reading usage data, sending emails, and managing waitlists. Each of these operations requires secure authentication using OAuth 2.0. The Azure App Registration provides the credentials (Client ID and Tenant ID) that Clara uses to prove her identity when making these API calls.
-
-While the app registration is created automatically during import, you'll still need to configure its permissions and client secret manually in the next steps. This separation is intentional—it ensures that sensitive credentials aren't embedded in the solution package and that you maintain full control over what Clara can access in your environment.
-
-Steps:  
-
-1. Open a **new browser tab**
-
-2. Navigate to: https://portal.azure.com
-
-3. Sign in with Skillable credentials (if prompted)
-
-4. Search for and click: **App Registrations**
-
-  ![](images/ap02.png)
-
-
-5. Click **All applications** tab
-
-6. Search for: **CLARA**
-
-7. Click on the CLARA application
-
-   ![](images/az01a.png)
-
-8. On the Overview page, copy these values to **Notepad**:
-
-   ![](images/az01b.png)
+4. Add to your Notepad configuration tracker:
 
    ```
-   Application (client) ID: ____________________
-   Directory (tenant) ID: ______________________
+   Microsoft Entra Configuration
+   ==============================
+   Group Name: M365 Copilot Licensed Users
+   Group Object ID: ____________________________
    ```
 
-✅ **Validation:** CLARA app visible in Azure with Client ID and Tenant ID saved.
+   > 🚨 **Critical:** Save this ID—you'll need it in Exercise 4 to configure Clara's flows
 
-💡 **Tip:** Keep Notepad open—you'll add more values as you progress through the configuration steps.
+✅ **Validation:** Object ID is copied and saved in Notepad
 
 ---
 
-### 🧱 Step 5: Verify Custom Connector
+### 🧱 Step 4: Assign Copilot Licenses to the Group
 
-#### Why the Custom Connector Matters:
-Along with the agent and Azure App Registration, the solution package also imported a Custom Connector called Clara Graph APIs. This connector is Clara's bridge to Microsoft Graph API—the unified API endpoint that provides programmatic access to Microsoft 365 services and data.
+#### How Group-Based Licensing Works
 
-While Copilot Studio has built-in connectors for many common operations, Clara needs specialized access to Graph API endpoints that aren't covered by standard connectors—specifically, license assignment operations, usage analytics from the M365 Copilot Dashboard API, and security group membership management. The custom connector packages these specific Graph API calls into reusable actions that Clara's Power Automate flows can invoke.
+When you assign licenses to a group, Microsoft 365 automatically:
+1. Assigns licenses to all current group members
+2. Assigns licenses to any users added to the group in the future
+3. Removes licenses when users are removed from the group
 
-Think of it this way: the Azure App Registration (from Step 4) is Clara's identity badge, and the Custom Connector is the specialized toolkit she uses to perform her job. Together, they enable Clara to read license inventory, assign and remove licenses, and retrieve usage data—all through secure, authenticated API calls.
+This automation is what makes Clara's license management so powerful.
 
-The connector was imported automatically, but you'll need configure the connection details in Exercise 3 by linking it to the Azure App Registration credentials you just verified.
+**Steps:**
 
-Steps:
+1. Open a new browser tab
 
+2. Navigate to: **https://admin.microsoft.com**
 
-1. Open a **new browser tab**
-
-2. Navigate to: https://make.powerautomate.com
+   > 💡 **This is the Microsoft 365 Admin Center**, not the Entra Admin Center
 
 3. Sign in if prompted
 
-4. In the left-hand menu, select Custom Connectors.
+4. In the left navigation, expand **Billing**
 
-   - If not pinned, click More → Discover all → Custom Connectors.
-   
-   ![](images/import15a.png) 
+5. Click **Licenses**
 
-5. Locate **Clara Graph APIs** in the list.
 
-   ![](images/import15a1.png) 
+6. Click **Subscriptions** tab
 
-✅ **Validation:** "Clara Graph APIs" connector visible in list.
+7. Locate **Microsoft 365 Copilot** in the list
 
-💡 **Note:** Status shows "Not connected"—this is expected. You'll configure it in Exercise 3.
+8. Click on **Microsoft 365 Copilot** to open license details
+
+   ![](images/ng03.png)
+
+9. Click the **Groups** tab
+
+
+10. Click **Assign licenses**
+
+
+11. In the "Assign licenses to a group" panel:
+
+    - Start typing: `M365 Copilot Licensed Users`
+    - Select your group from the dropdown
+    - Click **Assign licenses**
+
+    ![](images/ng04.png)
+
+    > ⏱️ **Wait time:** 5-10 seconds for assignment to process
+
+
+14. Verify the group now appears in the Groups tab with status: **All licenses assigned**
+
+    ![](images/ng05.png)
+
+✅ **Validation:** Security group is assigned M365 Copilot licenses and status shows "All licenses assigned"
+
+**Troubleshooting:**
+- **Can't find Microsoft 365 Copilot?** Your tenant may not have Copilot licenses—notify your instructor
+- **"Not enough licenses" error?** All licenses may be assigned to users—ask instructor to free up licenses
+- **Assignment fails?** Wait 30 seconds and try again—sometimes takes a moment to process
+- **Group doesn't appear in search?** Wait 1-2 minutes for Entra sync, then search again
 
 ---
 
 ## Summary
 
-You've successfully:
+You've successfully configured Clara's license management infrastructure:
 
-- ✅ Imported CLARA solution to Copilot Studio
-- ✅ Verified CLARA agent is visible and accessible
-- ✅ Confirmed Azure app registration was auto-created
-- ✅ Verified custom connector import
-- ✅ Saved Client ID and Tenant ID
+- ✅ Created a Microsoft Entra Security Group
+- ✅ Assigned M365 Copilot licenses to the group
+- ✅ Recorded the Group Object ID for Clara's configuration
 
 ---
 
-## Configuration Tracker
+## What You Built
 
-Save these values for upcoming exercises:
+**The Security Group** is Clara's control mechanism for licenses:
+
+**How Clara Uses It:**
+- 📥 **Add user to group** → License automatically assigned (within 2-3 minutes)
+- 📤 **Remove user from group** → License automatically revoked
+- 📊 **Query group membership** → See current license holders
+- 🔍 **Check user status** → Verify if user has access
+
+**Why This Architecture Matters:**
+
+Instead of directly manipulating licenses (complex, error-prone), Clara simply manages group membership (simple, reliable). Microsoft 365's group-based licensing handles the rest automatically.
+
+This design pattern:
+- ✅ **Scales effortlessly:** 1 user or 1000 users—same complexity
+- ✅ **Self-healing:** If license assignment fails, M365 retries automatically
+- ✅ **Audit-friendly:** Clear group membership history
+- ✅ **Governance-ready:** Integrates with access reviews and compliance tools
+
+---
+
+## Configuration Checklist
+
+Verify you have all values needed for Exercise 4:
 
 ```
-CLARA Configuration Values
-===========================
-Application (client) ID: ____________________
-Directory (tenant) ID: ______________________
-
-(More values will be added in Exercise 2)
+Infrastructure Setup - Complete
+===============================
+✅ SharePoint List created and configured
+✅ SharePoint View optimized
+✅ SharePoint Assets Folder with images
+✅ Security Group created
+✅ Security Group assigned Copilot licenses
+✅ Group Object ID saved
 ```
 
----
-
-## Troubleshooting
-
-**Issue:** Import fails with error
-
-**Solutions:**
-- Verify you have admin permissions
-- Check solution file is not corrupted
-- Ensure correct environment selected
-- Try import again (transient errors can occur)
+💾 **Keep these values safe!** You'll configure Clara's flows with these details in Exercise 4.
 
 ---
 
-**Issue:** Can't find CLARA app in Azure AD
-
-**Solutions:**
-- Wait 1-2 minutes for Azure AD sync
-- Refresh the App registrations page
-- Search in "All applications" tab
-- Verify correct tenant
+**Next:** [Exercise 4: Import CLARA to Copilot Studio](./04-exercise4.md)
 
 ---
 
-**Issue:** Custom connector not visible
+## Understanding Group-Based Licensing (Deep Dive)
 
-**Solutions:**
-- Verify same environment as Copilot Studio
-- Refresh Power Automate page
-- Check under Data > Custom connectors
-- If missing, import may have failed—retry
+**How It Works Behind the Scenes:**
 
----
+1. **User added to group** → Entra ID triggers a license assignment job
+2. **M365 evaluates** → Checks if licenses are available
+3. **License assigned** → User profile updated with Copilot license
+4. **Services provisioned** → Copilot access enabled (2-3 minutes)
+5. **Audit logged** → Change recorded in Azure AD audit logs
 
-## ⏱️ Time Check
+**Benefits for Enterprise:**
+- Central policy enforcement
+- Reduces administrative overhead
+- Enables automation scenarios (like Clara!)
+- Supports nested groups if needed
+- Integrates with access reviews
 
-You should be approximately **10 minutes** into the lab.
+**Alternative Approaches (Why We Don't Use Them):**
 
-- ⏰ On track: Continue to Exercise 2
-- ⏰ Behind: Raise your hand for assistance
+❌ **Direct user license assignment:** Doesn't scale, hard to audit, error-prone  
+❌ **PowerShell scripts on schedule:** Brittle, requires maintenance, no real-time response  
+❌ **Manual admin assignments:** Slow, inconsistent, doesn't scale
 
----
+✅ **Group-based with Clara automation:** Best of both worlds—automated + governed
 
-**Next:** [Exercise 2: Configure Azure App Registration](./exercise2.md)

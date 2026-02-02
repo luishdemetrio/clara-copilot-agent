@@ -1,8 +1,6 @@
 
 # Exercise 2: Create SharePoint Folder for Email Assets
 
-**Estimated time:** 5 minutes
-
 ## Objective
 
 Create a SharePoint folder to store Clara's email communication assets (images, logos, banners). Clara uses these assets to personalize onboarding emails and notifications, making the user experience professional and engaging.
@@ -117,13 +115,12 @@ You can customize these later with your own branding.
 1. Open a new browser tab
 
 2. Navigate to Clara's GitHub repository:
-   ```
-   https://github.com/luishdemetrio/clara-copilot-agent
-   ```
+   
+   https://github.com/luishdemetrio/clara-copilot-agent/labs
 
-3. Locate the **Email Assets** folder (or **Clara Email Images**)
+3. Locate the **Email Assets** folder
 
-4. Click on **Clara-Email-Images.zip**
+4. Click on **Clara Email Images.zip**
 
    ![](images/github-assets01.png)
 
@@ -303,7 +300,7 @@ You should be approximately **13 minutes** into the lab (8 min + 5 min).
 
 ---
 
-**Next:** [Exercise 1: Import CLARA](./01-exercise1.md)
+**Next:** [Exercise 3: Create Microsoft Entra Security Group](./03-exercise3.md)
 
 ---
 
@@ -328,22 +325,3 @@ After the workshop, you can customize Clara's email assets:
 - Test in email clients (Outlook, Gmail) to verify rendering
 
 ---
-
-**Observações:**
-
-1. ✅ Exercício curto: ~5 minutos (apropriado para workshop)
-2. ✅ Segue o mesmo formato dos outros exercícios
-3. ✅ Explica o "why" (estilo do Luís)
-4. ✅ Inclui troubleshooting em cada step
-5. ✅ Validation checkpoints frequentes
-6. ✅ Referencia GitHub para download
-7. ✅ Salva configuration tracker para Exercise 4
-8. ✅ Opcional test step (podem pular se estiverem sem tempo)
-9. ✅ Customization tips para depois do workshop
-
-**Ajustes possíveis:**
-- Se quiser ainda mais curto (~3 min), podemos pular o Step 6 (test) completamente
-- Podemos simplificar o Step 3 se você quiser hospedar os arquivos em outro lugar além do GitHub
-- Posso criar screenshots mockups se você precisar
-
-Quer algum ajuste? 🎯

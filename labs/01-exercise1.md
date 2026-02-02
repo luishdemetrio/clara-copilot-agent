@@ -1,7 +1,5 @@
 # Exercise 1: Prepare SharePoint Infrastructure
 
-**Estimated time:** 8 minutes
-
 ## Objective
 
 Import the M365 Copilot License Waitlist template into SharePoint and configure an optimized view for Clara's operations. This list serves as Clara's operational memory for tracking license requests and assignments.

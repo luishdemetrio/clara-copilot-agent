@@ -43,23 +43,21 @@ All setup guides, usage instructions, and troubleshooting are now in our Wiki an
 
 ## 🏗 Architecture
 
+
 ```mermaid
 graph TB
     A[Clara Agent] --> B[Microsoft Graph APIs]
     A --> C[SharePoint Lists]
     A --> D[Power Automate]
-    
-    B --> E[M365 Copilot Usage Dashboard]
-    C --> F[Waitlist Management]
-    D --> G[Email Notifications]
-    D --> L[Teams Notifications]
-    
-    E --> H[Usage Analytics]
-    F --> I[User Tracking]
-    G --> J[Automated Communications]
-    L --> J[Automated Communications]
+    B --> E[M365 Copilot Usage Dataverse]
+    B --> F[Assign or Remove Licenses]
+    C --> G[Waitlist Management]
+    D --> H[Email Notifications]
+    E --> J[Usage Analytics]
+    F --> K[License Operations]
+    G --> L[User Tracking]
+    H --> M[Automated Communications]
 ```
-
 
 ## 🤝 Contributing
 

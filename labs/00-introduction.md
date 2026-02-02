@@ -20,8 +20,8 @@ CLARA is a production-ready custom agent built on Microsoft Copilot Studio that 
 
 ## Lab Overview
 
-**Duration:** 50 minutes  
-**Format:** Hands-on deployment in Skillable environment  
+**Duration:** 60 minutes  
+**Format:** Hands-on deployment 
 **Outcome:** Fully functional Clara agent managing Copilot licenses
 
 ### Example Interactions with CLARA
@@ -90,34 +90,29 @@ Clara orchestrates six Microsoft systems:
 └──────────────┘    └──────────────┘    └──────────────┘
 ```
 
-## What's Pre-Configured
-
-Your Skillable environment includes:
-
-✅ SharePoint site with M365 Copilot License Waitlist  
-✅ M365 Copilot Licensed Users security group  
-✅ Power Automate flows for automation  
-✅ Sample waitlist data for testing  
-✅ CLARA solution package ready to import
-
 ## Lab Exercises
 
-### Exercise 1: Import CLARA (8 min)
+### Exercise 1: Prepare SharePoint Infrastructure
+Import the M365 Copilot License Waitlist template into SharePoint and configure an optimized view for Clara's operations
+
+### Exercise 2: Create SharePoint Folder for Email Assets
+Create a SharePoint folder to store Clara's email communication assets
+
+### Exercise 3: Create Microsoft Entra Security Group
+Create a Microsoft Entra Security Group that Clara will use to manage M365 Copilot license assignments. 
+
+### Exercise 4: Import CLARA
 Import the solution package and verify components
 
-### Exercise 2: Azure App Registration (10 min)
+### Exercise 5: Azure App Registration
 Configure permissions, consent, and credentials
 
-### Exercise 3: Custom Connector (10 min)
+### Exercise 6: Custom Connector
 Set up OAuth authentication with Azure
 
-### Exercise 4: Copilot Studio Configuration (12 min)
+### Exercise 7: Copilot Studio Configuration
 Connect tools and configure the agent
 
-### Exercise 5: Test CLARA (10 min)
-Validate with live license management scenarios
-
-**Total:** 50 minutes
 
 ## Learning Objectives
 
@@ -147,23 +142,12 @@ You'll complete the lab successfully when:
 ⚠️ **Browsers:** Use Edge or Chrome for best results  
 ⚠️ **Validation:** Complete checkpoints before continuing
 
-## Lab Environment Access
-
-All portals are accessible from your Skillable environment:
-
-- **Azure Portal:** https://portal.azure.com
-- **Copilot Studio:** https://copilotstudio.microsoft.com  
-- **Power Automate:** https://make.powerautomate.com
-- **SharePoint:** [URL provided in Skillable]
-
-Credentials are pre-configured in your Skillable VM.
 
 ## Getting Help
 
-- 🙋 Raise your hand for proctor assistance
+- 🙋 Open an issue
 - 📋 Check troubleshooting in each exercise
 - ✅ Don't skip validation checkpoints
-- ⏱️ Watch time estimates to stay on track
 
 ## Before You Begin
 
@@ -176,7 +160,7 @@ Prepare your workspace:
 
 ## Ready?
 
-When you're ready, proceed to **Exercise 1** to import CLARA into Copilot Studio.
+When you're ready, proceed to [Exercise 1: Prepare SharePoint Infrastructure](./01-exercise1.md)
 
 Let's build an enterprise AI agent together! 🚀
 

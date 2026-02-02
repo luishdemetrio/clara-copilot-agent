@@ -1,6 +1,4 @@
-# Exercise 3: Configure Clara Custom Connector
-
-**Estimated time:** 10 minutes
+# Exercise 6: Configure Clara Custom Connector
 
 ## Objective
 
@@ -10,19 +8,19 @@ Configure the Clara Graph APIs custom connector with OAuth 2.0 authentication, e
 
 ## What You'll Learn
 
-In Exercise 2, you configured Clara's Azure App Registration with permissions, secrets, and an exposed API scope. Now you'll complete the authentication chain by configuring Clara's Custom Connector to use those credentials when calling Microsoft Graph API.
+In Exercise 5, you configured Clara's Azure App Registration with permissions, secrets, and an exposed API scope. Now you'll complete the authentication chain by configuring Clara's Custom Connector to use those credentials when calling Microsoft Graph API.
 
 Think of this exercise as connecting the dots:
 
-- **Exercise 2**: Created Clara's identity and credentials (the "who")
-- **Exercise 3**: Configure how Clara uses those credentials to authenticate (the "how")
+- **Exercise 5**: Created Clara's identity and credentials (the "who")
+- **Exercise 6** (this): Configure how Clara uses those credentials to authenticate (the "how")
 
 ---
 
 ## What You'll Do
 
 - Edit Clara Graph APIs connector security settings
-- Configure OAuth 2.0 with Azure AD credentials from Exercise 2
+- Configure OAuth 2.0 with Azure AD credentials from Exercise 5
 - Add redirect URI to Azure app authentication
 - Create and test connector connection
 - Verify successful integration with Microsoft Graph
@@ -39,9 +37,9 @@ Required Values from Exercise 2
 Application (client) ID: ____________________
 Client Secret Value: ________________________
 Directory (tenant) ID: ______________________
-Scope URI: api://[client-id]/access_as_user
+
 ```
-> ⚠️ Don't have these values? Return to Exercise 2 and complete Steps 1, 4, and 5 before continuing.
+> ⚠️ Don't have these values? Return to Exercise 4 and complete Steps 1 and 4 before continuing.
 ---
 
 ## Tasks
@@ -137,15 +135,15 @@ Steps:
 ### 🧱 Step 3: Configure OAuth Authentication
 
 #### Understanding OAuth 2.0 Configuration
-This is where we connect everything from Exercise 2. You're about to configure the OAuth 2.0 authentication flow that enables Clara to securely access Microsoft Graph API on behalf of signed-in users.
+This is where we connect everything from Exercise 5. You're about to configure the OAuth 2.0 authentication flow that enables Clara to securely access Microsoft Graph API on behalf of signed-in users.
 
 #### What Each Field Does:
 - **Identity Provider**: Tells the connector which OAuth service to use (Azure AD in our case)
-- **Client ID & Secret**: Clara's credentials (like username and password) from Exercise 2
+- **Client ID & Secret**: Clara's credentials (like username and password) from Exercise 5
 - **Authorization URL**: Where users are redirected to sign in and grant consent
 - **Token URL**: Where the connector exchanges authorization codes for access tokens
 - **Refresh URL**: Where the connector gets new tokens when old ones expire
-- **Scope**: What permissions Clara is requesting (access_as_user from Exercise 2, plus offline_access for token refresh)
+- **Scope**: What permissions Clara is requesting `https://graph.microsoft.com/.default` plus offline_access for token refresh
 
 #### The OAuth 2.0 Flow in Action:
 
@@ -196,15 +194,15 @@ Steps:
    
      💡 Note: Token URL and Refresh URL are the same endpoint in Azure AD v2.0
 
-   - **Scope:** `api://[YOUR-CLIENT-ID]/access_as_user offline_access`
+   - **Scope:** `https://graph.microsoft.com/.default offline_access`
    
-     ⚠️ Replace `[YOUR-CLIENT-ID]` with your Application (client) I Dfrom Exercise 2
-     
-     >💡 Two scopes explained:
-     >
-     >`api://[client-id]/access_as_user` - The custom scope you created in Exercise 2
-     >
-     >`offline_access` - Allows token refresh without re-authentication
+     💡 Understanding this scope:
+
+        - **https://graph.microsoft.com/.default** - Requests all delegated permissions you configured in Exercise 5 (Directory.Read.All, GroupMember.ReadWrite.All, Reports.Read.All)
+   
+        - **offline_access** - Allows the connector to refresh access tokens automatically without re-authentication
+
+        🚨 Important: This is Microsoft Graph's scope, NOT a custom scope. You're authenticating TO Graph API, not creating your own API. Clara calls Microsoft Graph endpoints directly, so we use Microsoft's scope format.
 
 4. Critical validation checkpoint:
 
@@ -279,7 +277,7 @@ Steps:
 
    >🚨 Important: Copy the URL exactly as shown, including https:// and no trailing spaces. An incorrect Redirect URI will cause authentication failures.
 
-✅ **Validation:** RRedirect URI copied exactly and saved to Notepad.
+✅ **Validation:** Redirect URI copied exactly and saved to Notepad.
 
 **Troubleshooting:**
 
@@ -659,7 +657,7 @@ You've successfully:
 - Client ID: Your Application ID
 - Client Secret: Your secret value
 - OAuth URLs: Azure AD endpoints
-- Scope: `api://[client-id]/access_as_user offline_access`
+- Scope: `https://graph.microsoft.com/.default offline_access`
 
 **Azure App Authentication:**
 - Platform: Web
@@ -668,5 +666,4 @@ You've successfully:
 ---
 
 
-**Previous:** [Exercise 2: Configure Azure App Registration](./02-exercise2.md)  
-**Next:** [Exercise 4: Configure Clara in Copilot Studio](./04-exercise4.md)
+**Next:** [Exercise 7: Configure Clara in Copilot Studio](./07-exercise7.md)

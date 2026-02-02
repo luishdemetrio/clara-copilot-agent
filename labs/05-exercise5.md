@@ -1,6 +1,5 @@
-# Exercise 2: Configure Azure App Registration
+# Exercise 5: Configure Azure App Registration
 
-**Estimated time:** 12 minutes
 
 ## Objective
 
@@ -35,7 +34,7 @@ CLARA needs specific Microsoft Graph permissions to manage Copilot licenses:
 
 2. Navigate to: https://portal.azure.com
 
-3. Sign in with Skillable credentials (if prompted)
+3. Sign in with your credentials (if prompted)
 
 4. Search for and click: **App Registrations**
 
@@ -214,101 +213,6 @@ Steps:
 
 ---
 
-### 🧱 Step 5: Expose the API
-
-#### Why We Need to Expose an API
-Up to this point, we've configured Clara to call Microsoft Graph API (the permissions in Step 2). Now we need to do the reverse: allow Clara's Custom Connector to securely call Clara's app registration using OAuth 2.0 authentication.
-
-##### Understanding the Flow:
-When a user interacts with Clara, here's what happens behind the scenes:
-
-1. User logs in to Clara through Copilot Studio
-2. Custom Connector authenticates with Clara's app registration (this step)
-3. Clara's app uses delegated permissions to call Microsoft Graph API
-4. Actions are performed on behalf of the logged-in user
-
-##### What "Expose an API" Does:
-
-By exposing an API, you're essentially saying: "This app registration can be called by other applications, and here are the rules for who can access it and what they can do."
-
-###### The Application ID URI:
-
-Think of this as Clara's unique API address. Just like a website has a URL (https://www.example.com), your app registration needs a URI that identifies it in your tenant. Azure uses the format api://[client-id] to ensure uniqueness.
-
-###### OAuth 2.0 Scopes:
-
-Scopes define what level of access is being requested. The access_as_user scope we're creating tells Azure: "When someone authenticates through this app, they're acting as themselves, not as the app." This ties directly to the delegated permissions model from Step 2.
-
-Steps:
-
-1. Click **Expose an API** (left menu)
-
-2. Next to **Application ID URI**, click **Add**
-
-3. Azure suggests: `api://[your-application-id]`
-
-   Keep this default value—do NOT change it
-   
-   > 💡 Why? This format ensures your API URI is globally unique within Azure AD. Custom URIs can cause authentication conflicts.
-
-4. Click **Save**
-
-   ![](images/az06.png)
-
-5. Under **Scopes defined by this API**, click **+ Add a scope**
-
-6. Fill in the scope details:
-
-   **Scope name:** `access_as_user`
-   
-   > 💡 This is a conventional name that clearly indicates delegated access
-
-   **Who can consent:** 
-   - Select **Admins and users**
-   
-   > 💡 Allows both admins and end users to consent, providing flexibility while maintaining security
-
-   **Admin consent display name:** `Access Clara as user`
-
-   **Admin consent description:** `Allows Clara access on behalf of the user`
-
-   **User consent display name:** `Access Clara as user`
-
-   **User consent description:** `Allows Clara to act on your behalf`
-
-   **State:**
-   - Ensure **Enabled** is selected
-
-7. Click **Add scope**
-
-   ![](images/az07.png)
-   
-8. Verify the scope appears in the format:
-   ```
-   api://[your-client-id]/access_as_user
-   ```
-
-9. **Copy the full scope URI** to Notepad:
-   ```
-   Scope URI: api://[client-id]/access_as_user
-   ```
-
-   ![](images/az07a.png)
-   
-   > 🚨 Important: Copy the COMPLETE URI including api:// prefix. You'll need this exact format in Exercise 3.
-   
-10. Update your configuration tracker with the new value:
-    
-    ```
-    Application (client) ID: ____________________
-    Directory (tenant) ID: ______________________
-    Client Secret Value: ________________________
-    Scope URI: api://[client-id]/access_as_user
-    ```
-   
-✅ **Validation:** Scope visible with Status "Enabled" and full URI saved in Notepad.
-
----
 
 ## Summary
 
@@ -317,20 +221,10 @@ You've configured:
 - ✅ 3 Microsoft Graph delegated permissions
 - ✅ Admin consent granted for all permissions
 - ✅ Client secret created and saved
-- ✅ API exposed with custom `access_as_user` scope
 
 ---
 
 ## Troubleshooting
-
-**Issue:** Can't add delegated permissions
-
-**Solutions:**
-- **Can't add scope?** Ensure you saved the Application ID URI in step 4 first
-- **Scope already exists?** Someone may have created it previously—verify the configuration matches and proceed
-- **Wrong Application ID URI?** You can edit it, but only before adding scopes. If scopes exist, delete them first, change the URI, then recreate scopes.
-
----
 
 **Issue:** Lost client secret
 
@@ -343,14 +237,5 @@ You've configured:
 
 ---
 
-**Issue:** Scope already exists
+**Next:** [Exercise 6: Configure Clara Custom Connector](./06-exercise6.md)
 
-**Solutions:**
-- Click existing scope to verify configuration
-- If correct, proceed to Exercise 3
-- If wrong, delete and recreate
-
----
-
-**Previous:** [Exercise 1: Import CLARA](./01-exercise1.md)  
-**Next:** [Exercise 3: Configure Clara Custom Connector](./03-exercise3.md)

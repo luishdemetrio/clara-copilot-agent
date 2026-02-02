@@ -1,6 +1,5 @@
-# Exercise 4: Configure Clara in Copilot Studio
+# Exercise 7: Configure Clara in Copilot Studio
 
-**Estimated time:** 12 minutes
 
 ## Objective
 
@@ -11,9 +10,9 @@ Complete CLARA's configuration in Copilot Studio by connecting all tools, settin
 ## What You'll Learn
 In the previous exercises, you built Clara's infrastructure layer by layer:
 
-- Exercise 1: Imported Clara's solution package with all components
-- Exercise 2: Configured Azure App Registration with permissions and OAuth credentials
-- Exercise 3: Connected Clara's custom connector to Microsoft Graph API
+- Exercise 4: Imported Clara's solution package with all components
+- Exercise 5: Configured Azure App Registration with permissions and OAuth credentials
+- Exercise 6: Connected Clara's custom connector to Microsoft Graph API
 
 Now comes the final integration step: connecting all of Clara's tools and flows within Copilot Studio itself. Think of this as wiring the electrical system in a house—the foundation is built, the walls are up, and now we're connecting everything to the power source so Clara can actually function.
 
@@ -42,18 +41,6 @@ Each of these components was imported in Exercise 1, but they're not yet connect
 By the end of this exercise, Clara will be fully operational and ready to manage Microsoft 365 Copilot licenses in your environment.
 
 ---
-
-## Before You Begin
-
-Verify you have completed:
-
-- ✅ Exercise 1: CLARA imported into Copilot Studio
-- ✅ Exercise 2: Azure App Registration configured with permissions
-- ✅ Exercise 3: Clara Graph APIs connector authenticated and tested
-
-
-> ⚠️ Important: If any previous exercise is incomplete, Clara's configuration will fail. Return and complete any missing steps before proceeding.
-
 
 
 ## Tasks
