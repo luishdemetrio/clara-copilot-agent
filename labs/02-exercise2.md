@@ -116,7 +116,7 @@ You can customize these later with your own branding.
 
 2. Navigate to Clara's GitHub repository:
    
-   https://github.com/luishdemetrio/clara-copilot-agent/labs
+   https://github.com/luishdemetrio/clara-copilot-agent/blob/main/labs/
 
 3. Locate the **Email Assets** folder
 
