@@ -164,7 +164,7 @@ You can customize these later with your own branding.
 
 3. In the file picker dialog, navigate to your extracted email images folder
 
-4. Select **all image files** (Ctrl+A on Windows, Cmd+A on Mac)
+4. Select **all PNG image files**
 
    ![](images/sp-folder05.png)
 
@@ -203,7 +203,7 @@ Clara's Power Automate flows use the SharePoint connector to fetch files. The co
 
 2. The folder URL should look like:
    ```
-   https://yourtenant.sharepoint.com/sites/SiteName/Shared Documents/Clara
+   https://yourtenant.sharepoint.com/sites/Clara365/Shared%20Documents/Clara/
    ```
 
 3. Add this to your Notepad configuration tracker:
@@ -214,7 +214,7 @@ Clara's Power Automate flows use the SharePoint connector to fetch files. The co
    Site URL: _______________________________________
    List Name: M365 Copilot License Waitlist
    View Name: Active Waitlist
-   Assets Folder Path: /Shared Documents/Clara
+   Assets Folder Path: https://yourtenant.sharepoint.com/sites/Clara365/Shared%20Documents/Clara/
    ```
 
    > 💡 **Important:** Save the **relative path** (`/Shared Documents/Clara`) rather than the full URL—Clara's connector will combine this with the Site URL
