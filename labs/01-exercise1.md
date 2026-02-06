@@ -51,7 +51,7 @@ Creating 8 columns manually with specific data types, validation rules, and sett
 
 2. Navigate to the Clara GitHub repository:
    
-   https://github.com/luishdemetrio/clara-copilot-agent/labs
+   https://github.com/luishdemetrio/clara-copilot-agent/blob/main/labs/
    
 3. Locate the **SharePoint Templates** folder
 
