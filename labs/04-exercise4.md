@@ -17,19 +17,41 @@ Import the CLARA solution package into Microsoft Copilot Studio and verify all c
 
 ## Tasks
 
-### 🧱 Step 1: Access Copilot Studio
+### 🧱 Step 1: Download Clara's solution
 
-1. In your Skillable environment, open **Microsoft Edge**
+
+1. Navigate to Clara's GitHub repository:
+   
+   https://github.com/luishdemetrio/clara-copilot-agent/blob/main/labs/
+
+3. Locate and click on the **agent** folder
+
+   ![](images/import01a.png)
+
+4. Click on **ClaraCopilotAgent_2_0_0_7.zip**
+
+   ![](images/import01b.png)
+   
+   > ℹ️ The file name or version can be different
+
+5. Click **Download** (download icon on the right)
+
+   ![](images/import01c.png)
+
+
+### 🧱 Step 2: Access Copilot Studio
+
+1. In your environment, open **Microsoft Edge**
 
 2. Navigate to: https://copilotstudio.microsoft.com
 
-3. Sign in with the credentials provided in your Skillable environment
+3. Sign in 
 
 ✅ **Validation:** Copilot Studio home page loads with Agents tab visible.
 
 ---
 
-### 🧱 Step 2: Import the Solution
+### 🧱 Step 3: Import the Solution
 
 1. Access Solutions:
 
@@ -47,6 +69,8 @@ Import the CLARA solution package into Microsoft Copilot Studio and verify all c
    - Click **Open**
    
    ![](images/import01.png)
+   
+   
 
 4. Click **Import** to start the process
 
@@ -179,86 +203,6 @@ After importing the agent package, the next critical step is confirming that Cla
 >If any components are missing, verify that the import completed without errors. You may need to re-import the solution package or check that your environment has the necessary licenses and permissions.
 ---
 
-### 🧱 Step 4: Verify Azure App Registration (Auto-Created)
-
-#### Why Azure App Registration Matters:
-When you imported Clara's solution package, **Copilot Studio automatically created an Azure App Registration** behind the scenes. This app registration is Clara's identity in your Microsoft 365 tenant—think of it as Clara's security badge that allows her to authenticate and interact with protected services like Microsoft Graph API, SharePoint, and Outlook.
-
-Custom Agents like Clara need this identity because they perform actions on behalf of users: assigning licenses, reading usage data, sending emails, and managing waitlists. Each of these operations requires secure authentication using OAuth 2.0. The Azure App Registration provides the credentials (Client ID and Tenant ID) that Clara uses to prove her identity when making these API calls.
-
-While the app registration is created automatically during import, you'll still need to configure its permissions and client secret manually in the next steps. This separation is intentional—it ensures that sensitive credentials aren't embedded in the solution package and that you maintain full control over what Clara can access in your environment.
-
-Steps:  
-
-1. Open a **new browser tab**
-
-2. Navigate to: https://portal.azure.com
-
-3. Sign in with Skillable credentials (if prompted)
-
-4. Search for and click: **App Registrations**
-
-  ![](images/ap02.png)
-
-
-5. Click **All applications** tab
-
-6. Search for: **CLARA**
-
-7. Click on the CLARA application
-
-   ![](images/az01a.png)
-
-8. On the Overview page, copy these values to **Notepad**:
-
-   ![](images/az01b.png)
-
-   ```
-   Application (client) ID: ____________________
-   Directory (tenant) ID: ______________________
-   ```
-
-✅ **Validation:** CLARA app visible in Azure with Client ID and Tenant ID saved.
-
-💡 **Tip:** Keep Notepad open—you'll add more values as you progress through the configuration steps.
-
----
-
-### 🧱 Step 5: Verify Custom Connector
-
-#### Why the Custom Connector Matters:
-Along with the agent and Azure App Registration, the solution package also imported a Custom Connector called Clara Graph APIs. This connector is Clara's bridge to Microsoft Graph API—the unified API endpoint that provides programmatic access to Microsoft 365 services and data.
-
-While Copilot Studio has built-in connectors for many common operations, Clara needs specialized access to Graph API endpoints that aren't covered by standard connectors—specifically, license assignment operations, usage analytics from the M365 Copilot Dashboard API, and security group membership management. The custom connector packages these specific Graph API calls into reusable actions that Clara's Power Automate flows can invoke.
-
-Think of it this way: the Azure App Registration (from Step 4) is Clara's identity badge, and the Custom Connector is the specialized toolkit she uses to perform her job. Together, they enable Clara to read license inventory, assign and remove licenses, and retrieve usage data—all through secure, authenticated API calls.
-
-The connector was imported automatically, but you'll need configure the connection details in Exercise 3 by linking it to the Azure App Registration credentials you just verified.
-
-Steps:
-
-
-1. Open a **new browser tab**
-
-2. Navigate to: https://make.powerautomate.com
-
-3. Sign in if prompted
-
-4. In the left-hand menu, select Custom Connectors.
-
-   - If not pinned, click More → Discover all → Custom Connectors.
-   
-   ![](images/import15a.png) 
-
-5. Locate **Clara Graph APIs** in the list.
-
-   ![](images/import15a1.png) 
-
-✅ **Validation:** "Clara Graph APIs" connector visible in list.
-
-💡 **Note:** Status shows "Not connected"—this is expected. You'll configure it in Exercise 3.
-
----
 
 ## Summary
 
@@ -266,24 +210,7 @@ You've successfully:
 
 - ✅ Imported CLARA solution to Copilot Studio
 - ✅ Verified CLARA agent is visible and accessible
-- ✅ Confirmed Azure app registration was auto-created
-- ✅ Verified custom connector import
-- ✅ Saved Client ID and Tenant ID
-
 ---
-
-## Configuration Tracker
-
-Save these values for upcoming exercises:
-
-```
-CLARA Configuration Values
-===========================
-Application (client) ID: ____________________
-Directory (tenant) ID: ______________________
-
-(More values will be added in Exercise 2)
-```
 
 ---
 
@@ -299,24 +226,5 @@ Directory (tenant) ID: ______________________
 
 ---
 
-**Issue:** Can't find CLARA app in Azure AD
-
-**Solutions:**
-- Wait 1-2 minutes for Azure AD sync
-- Refresh the App registrations page
-- Search in "All applications" tab
-- Verify correct tenant
-
----
-
-**Issue:** Custom connector not visible
-
-**Solutions:**
-- Verify same environment as Copilot Studio
-- Refresh Power Automate page
-- Check under Data > Custom connectors
-- If missing, import may have failed—retry
-
----
 
 **Next:** [Exercise 5: Configure Azure App Registration](./05-exercise5.md)

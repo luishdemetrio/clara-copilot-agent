@@ -252,17 +252,22 @@ Save these details for Exercise 4 configuration:
 
 **Steps:**
 
-1. Update your Notepad with the following information:
+1. Navigate to the view that you created and copy the view id from the URL:
+
+   ![](images/sl11.png)
+
+
+2. Update your Notepad with the following information:
 
    ```
    SharePoint Configuration
    ========================
    Site URL: _______________________________________
    List Name: M365 Copilot License Waitlist
-   View Name: Active Waitlist
+   View ID: 2044a7e9-b0ca-4bac-a968-4aea395537d2
    ```
 
-2. To get the **List URL** (optional, but helpful):
+3. To get the **List URL** (optional, but helpful):
    - While viewing the list, copy the URL from your browser
    - Example: `https://yourtenant.sharepoint.com/sites/SiteName/Lists/M365CopilotLicenseWaitlist`
    - Add to your notes:
@@ -270,7 +275,7 @@ Save these details for Exercise 4 configuration:
      List URL: _______________________________________
      ```
 
-3. Keep this information—you'll need it when configuring Clara's SharePoint connector in Exercise 4
+4. Keep this information—you'll need it when configuring Clara's SharePoint connector in Exercise 4
 
 ✅ **Validation:** All SharePoint configuration details saved in Notepad
 
