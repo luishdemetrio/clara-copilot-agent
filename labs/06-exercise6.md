@@ -38,11 +38,11 @@ The connector was imported automatically, but you'll need configure the connecti
 ---
 ## Before You Begin
 
-Retrieve these values from Exercise 2 (should be in your Notepad):
+Retrieve these values from Exercise 5 (should be in your Notepad):
 
 ```
-Required Values from Exercise 2
-================================
+Azure App Registration
+======================
 Application (client) ID: ____________________
 Client Secret Value: ________________________
 Directory (tenant) ID: ______________________
@@ -307,15 +307,6 @@ Azure AD has strict security controls around OAuth 2.0 redirects. When a user si
 #### What We're Doing:
 We're telling Azure AD: "When someone authenticates through Clara's app registration, it's safe to redirect them back to *`https://global.consent.azure-apim.net/redirect`*—this is Power Platform's trusted endpoint."
 
-####The Complete Authentication Circle:
-
-With this step, you're closing the authentication loop:
-
-1. ✅ Exercise 2, Step 2: Defined what Clara can access (Microsoft Graph permissions)
-2. ✅ Exercise 2, Step 4: Created credentials for Clara (Client Secret)
-3. ✅ Exercise 2, Step 5: Exposed Clara's API with a custom scope
-4. ✅ Exercise 3, Step 3: Configured the connector with OAuth endpoints
-5. ✅ Exercise 3, Step 5 (now): Register where users return after authentication
 
 After this step, the entire OAuth 2.0 flow will be functional.
 

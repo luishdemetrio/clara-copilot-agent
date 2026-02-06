@@ -202,11 +202,16 @@ Steps:
 
 
 7. While you're here, verify you have the Client ID and Tenant ID from the previous exercise. If you missed copying them, go to the Overview page and copy:
+
    - **Application (client) ID**
    - **Directory (tenant) ID**
+   
+   ![](images/az01b.png)
 
 8. Update your complete configuration tracker:
    ```
+   Azure App Registration
+   ======================
    Application (client) ID: ____________________
    Directory (tenant) ID: ______________________
    Client Secret Value: ________________________
