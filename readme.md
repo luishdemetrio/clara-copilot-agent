@@ -35,6 +35,7 @@ Managing M365 Copilot licenses across large organizations can be complex and tim
 All setup guides, usage instructions, and troubleshooting are now in our Wiki and Discussions.
 
 - **Getting Started:** See the [Wiki](https://github.com/luishdemetrio/clara-copilot-agent/wiki)
+- **Hands-On Lab:** Complete lab instructions for [Skillable Platform](docs/LAB_INSTRUCTIONS_README.md)
 - **Ask Questions:** Use [Discussions](https://github.com/luishdemetrio/clara-copilot-agent/discussions)
 - **Report Issues:** GitHub [Issues](https://github.com/luishdemetrio/clara-copilot-agent/issues)
 
