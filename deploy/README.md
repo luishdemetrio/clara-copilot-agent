@@ -182,10 +182,3 @@ clara/
 
 Issues and pull requests are welcome. Please open an issue describing the package affected before submitting a PR.
 
-## License
-
-Internal/proprietary — update this section with your organization's licensing terms before publishing publicly.
-
-## Acknowledgments
-
-CLARA — created and maintained by Luís.
