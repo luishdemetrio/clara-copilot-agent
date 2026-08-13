@@ -1,0 +1,22 @@
+{
+  "templateConfig": {
+    "name": "Bienvenida Copilot 365",
+    "version": "1.0",
+    "lastUpdated": "2026-06-19",
+    "updatedBy": "admin@you.com"
+  },
+  "placeholders": {
+    "logoUrl": "https://m365cpi69113837.sharepoint.com/:i:/g/IQCGCLJYvgqlQYgWbHDrxFoyAR7hJgG2Tg8Idr8683PP9fY?e=xqIunK",
+    "videoUrl": "https://www.youtube.com/watch?v=zqH-HtQbaeU",
+    "videoThumbnailUrl": "https://img.youtube.com/vi/zqH-HtQbaeU/maxresdefault.jpg",
+    "attachementUrl": "https://yourtenant.sharepoint.com/sites/Copilot/Documents/infografia-cowork.pdf",
+    "attachmentThumbnailUrl": "https://yourtenant.sharepoint.com/sites/Copilot/Documents/infografia-preview.png",
+    "signatureUrl":"https://m365cpi69113837.sharepoint.com/:i:/g/IQBH6Y31U6wbQZ9M8qzDIk5LASzxUbePBgvVbRYPrYjJyPg?e=bV2c5Y",
+    "contactEmail": "adopcion@you.com"
+  },
+  "emailSettings": {
+    "subject": "🚀 Bienvenida a Copilot para Microsoft 365",
+    "importance": "Normal",
+    "saveToSentItems": true
+  }
+}
